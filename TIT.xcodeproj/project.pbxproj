@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6715D14140E3EF9001A0EA6 /* InitScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6715D13140E3EF9001A0EA6 /* InitScene.m */; };
+		C6715D17140E3F72001A0EA6 /* SelectGameModeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6715D16140E3F72001A0EA6 /* SelectGameModeScene.m */; };
 		C6C2DF70140E373200270E60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF6F140E373200270E60 /* QuartzCore.framework */; };
 		C6C2DF72140E373200270E60 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF71140E373200270E60 /* OpenGLES.framework */; };
 		C6C2DF74140E373200270E60 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF73140E373200270E60 /* OpenAL.framework */; };
@@ -125,6 +127,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C6715D12140E3EF9001A0EA6 /* InitScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitScene.h; sourceTree = "<group>"; };
+		C6715D13140E3EF9001A0EA6 /* InitScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitScene.m; sourceTree = "<group>"; };
+		C6715D15140E3F72001A0EA6 /* SelectGameModeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGameModeScene.h; sourceTree = "<group>"; };
+		C6715D16140E3F72001A0EA6 /* SelectGameModeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectGameModeScene.m; sourceTree = "<group>"; };
 		C6C2DF6B140E373200270E60 /* TIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C2DF6F140E373200270E60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C6C2DF71140E373200270E60 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -381,6 +387,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6715D10140E3E8C001A0EA6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C6715D12140E3EF9001A0EA6 /* InitScene.h */,
+				C6715D13140E3EF9001A0EA6 /* InitScene.m */,
+				C6715D15140E3F72001A0EA6 /* SelectGameModeScene.h */,
+				C6715D16140E3F72001A0EA6 /* SelectGameModeScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		C6C2DF60140E373200270E60 = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +433,7 @@
 		C6C2DF7F140E373200270E60 /* TIT */ = {
 			isa = PBXGroup;
 			children = (
+				C6715D10140E3E8C001A0EA6 /* Scenes */,
 				C6C2E0D1140E373700270E60 /* AppDelegate.h */,
 				C6C2E0D2140E373700270E60 /* AppDelegate.m */,
 				C6C2E0D4140E373700270E60 /* RootViewController.h */,
@@ -922,6 +940,8 @@
 				C6C2E0D3140E373700270E60 /* AppDelegate.m in Sources */,
 				C6C2E0D6140E373700270E60 /* RootViewController.m in Sources */,
 				C6C2E0D9140E373700270E60 /* HelloWorldLayer.m in Sources */,
+				C6715D14140E3EF9001A0EA6 /* InitScene.m in Sources */,
+				C6715D17140E3F72001A0EA6 /* SelectGameModeScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1015,6 +1035,7 @@
 				C6C2E0DF140E373700270E60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
