@@ -2,7 +2,7 @@
 //  RootViewController.m
 //  TIT
 //
-//  Created by swanky on 11-8-31.
+//  Created by Swanky on 11-8-31.
 //  Copyright iBrother 2011. All rights reserved.
 //
 

@@ -14,11 +14,13 @@
 		C60A0020140F616D00D3C28A /* ChorusSinger.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A001F140F616D00D3C28A /* ChorusSinger.m */; };
 		C60A0023140F61AD00D3C28A /* ChorusPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0022140F61AD00D3C28A /* ChorusPlayer.m */; };
 		C60A0026140F620D00D3C28A /* ChorusConductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0025140F620D00D3C28A /* ChorusConductor.m */; };
-		C60A002F140F632600D3C28A /* ChoosGameModeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A002E140F632600D3C28A /* ChoosGameModeScene.m */; };
+		C60A002F140F632600D3C28A /* ChooseGameModeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A002E140F632600D3C28A /* ChooseGameModeScene.m */; };
 		C60A0032140F633400D3C28A /* ChooseGameLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0031140F633300D3C28A /* ChooseGameLevelScene.m */; };
 		C60A0035140F63A000D3C28A /* LevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0034140F639F00D3C28A /* LevelScene.m */; };
 		C60A0038140F641E00D3C28A /* ChorusLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0037140F641D00D3C28A /* ChorusLevelScene.m */; };
 		C6715D14140E3EF9001A0EA6 /* InitScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6715D13140E3EF9001A0EA6 /* InitScene.m */; };
+		C6A58248140F899900637E29 /* common_atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6A58246140F899900637E29 /* common_atlas.plist */; };
+		C6A58249140F899900637E29 /* common_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A58247140F899900637E29 /* common_atlas.png */; };
 		C6C2DF70140E373200270E60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF6F140E373200270E60 /* QuartzCore.framework */; };
 		C6C2DF72140E373200270E60 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF71140E373200270E60 /* OpenGLES.framework */; };
 		C6C2DF74140E373200270E60 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF73140E373200270E60 /* OpenAL.framework */; };
@@ -133,7 +135,7 @@
 		C6C2E0D0140E373700270E60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0CF140E373700270E60 /* main.m */; };
 		C6C2E0D3140E373700270E60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0D2140E373700270E60 /* AppDelegate.m */; };
 		C6C2E0D6140E373700270E60 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0D5140E373700270E60 /* RootViewController.m */; };
-		C6C2E0D9140E373700270E60 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0D8140E373700270E60 /* HelloWorldLayer.m */; };
+		C6C34B0D140F6CC300061CC8 /* GameSceneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C34B0C140F6CC300061CC8 /* GameSceneLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,8 +153,8 @@
 		C60A0022140F61AD00D3C28A /* ChorusPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusPlayer.m; sourceTree = "<group>"; };
 		C60A0024140F620C00D3C28A /* ChorusConductor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChorusConductor.h; sourceTree = "<group>"; };
 		C60A0025140F620D00D3C28A /* ChorusConductor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusConductor.m; sourceTree = "<group>"; };
-		C60A002D140F632600D3C28A /* ChoosGameModeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosGameModeScene.h; sourceTree = "<group>"; };
-		C60A002E140F632600D3C28A /* ChoosGameModeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosGameModeScene.m; sourceTree = "<group>"; };
+		C60A002D140F632600D3C28A /* ChooseGameModeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ChooseGameModeScene.h; sourceTree = "<group>"; };
+		C60A002E140F632600D3C28A /* ChooseGameModeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseGameModeScene.m; sourceTree = "<group>"; };
 		C60A0030140F633300D3C28A /* ChooseGameLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseGameLevelScene.h; sourceTree = "<group>"; };
 		C60A0031140F633300D3C28A /* ChooseGameLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseGameLevelScene.m; sourceTree = "<group>"; };
 		C60A0033140F639F00D3C28A /* LevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScene.h; sourceTree = "<group>"; };
@@ -161,7 +163,10 @@
 		C60A0037140F641D00D3C28A /* ChorusLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusLevelScene.m; sourceTree = "<group>"; };
 		C6715D12140E3EF9001A0EA6 /* InitScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = InitScene.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C6715D13140E3EF9001A0EA6 /* InitScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = InitScene.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C6C2DF6B140E373200270E60 /* TIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A58236140F791000637E29 /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
+		C6A58246140F899900637E29 /* common_atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = common_atlas.plist; sourceTree = "<group>"; };
+		C6A58247140F899900637E29 /* common_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_atlas.png; sourceTree = "<group>"; };
+		C6C2DF6B140E373200270E60 /* Tap In Tune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tap In Tune.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C2DF6F140E373200270E60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C6C2DF71140E373200270E60 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C6C2DF73140E373200270E60 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -393,9 +398,9 @@
 		C6C2E0D2140E373700270E60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C6C2E0D4140E373700270E60 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RootViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C6C2E0D5140E373700270E60 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RootViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C6C2E0D7140E373700270E60 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HelloWorldLayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C6C2E0D8140E373700270E60 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HelloWorldLayer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C6C2E0DA140E373700270E60 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GameConfig.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C6C34B0B140F6CC300061CC8 /* GameSceneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneLayer.h; sourceTree = "<group>"; };
+		C6C34B0C140F6CC300061CC8 /* GameSceneLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +425,7 @@
 		C6715D10140E3E8C001A0EA6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				C6C34B09140F6C8E00061CC8 /* Layers */,
 				C60A0011140F4D3E00D3C28A /* GameScene.h */,
 				C60A0012140F4D3E00D3C28A /* GameScene.m */,
 				C60A0033140F639F00D3C28A /* LevelScene.h */,
@@ -428,8 +434,8 @@
 				C60A0037140F641D00D3C28A /* ChorusLevelScene.m */,
 				C6715D12140E3EF9001A0EA6 /* InitScene.h */,
 				C6715D13140E3EF9001A0EA6 /* InitScene.m */,
-				C60A002D140F632600D3C28A /* ChoosGameModeScene.h */,
-				C60A002E140F632600D3C28A /* ChoosGameModeScene.m */,
+				C60A002D140F632600D3C28A /* ChooseGameModeScene.h */,
+				C60A002E140F632600D3C28A /* ChooseGameModeScene.m */,
 				C60A0030140F633300D3C28A /* ChooseGameLevelScene.h */,
 				C60A0031140F633300D3C28A /* ChooseGameLevelScene.m */,
 			);
@@ -439,6 +445,7 @@
 		C68D5ECE140F3F8F00A9A48D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C6A58235140F783400637E29 /* Constants */,
 				C68D5ED0140F402D00A9A48D /* GameObjects */,
 				C6715D10140E3E8C001A0EA6 /* Scenes */,
 			);
@@ -464,6 +471,23 @@
 			name = GameObjects;
 			sourceTree = "<group>";
 		};
+		C6A58235140F783400637E29 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C6A58236140F791000637E29 /* CommonProtocols.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		C6A58245140F897800637E29 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C6A58246140F899900637E29 /* common_atlas.plist */,
+				C6A58247140F899900637E29 /* common_atlas.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C6C2DF60140E373200270E60 = {
 			isa = PBXGroup;
 			children = (
@@ -476,7 +500,7 @@
 		C6C2DF6C140E373200270E60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6C2DF6B140E373200270E60 /* TIT.app */,
+				C6C2DF6B140E373200270E60 /* Tap In Tune.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -503,10 +527,9 @@
 				C6C2E0D2140E373700270E60 /* AppDelegate.m */,
 				C6C2E0D4140E373700270E60 /* RootViewController.h */,
 				C6C2E0D5140E373700270E60 /* RootViewController.m */,
-				C6C2E0D7140E373700270E60 /* HelloWorldLayer.h */,
-				C6C2E0D8140E373700270E60 /* HelloWorldLayer.m */,
 				C6C2E0DA140E373700270E60 /* GameConfig.h */,
 				C68D5ECE140F3F8F00A9A48D /* Classes */,
+				C6A58245140F897800637E29 /* Images */,
 				C6C2DF80140E373300270E60 /* Resources */,
 				C6C2DF94140E373300270E60 /* libs */,
 				C6C2E0CD140E373700270E60 /* Supporting Files */,
@@ -842,6 +865,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C6C34B09140F6C8E00061CC8 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				C6C34B0B140F6CC300061CC8 /* GameSceneLayer.h */,
+				C6C34B0C140F6CC300061CC8 /* GameSceneLayer.m */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -859,7 +891,7 @@
 			);
 			name = TIT;
 			productName = TIT;
-			productReference = C6C2DF6B140E373200270E60 /* TIT.app */;
+			productReference = C6C2DF6B140E373200270E60 /* Tap In Tune.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -901,6 +933,8 @@
 				C6C2DF8E140E373300270E60 /* Icon.png in Resources */,
 				C6C2DF90140E373300270E60 /* Icon@2x.png in Resources */,
 				C6C2DF93140E373300270E60 /* iTunesArtwork in Resources */,
+				C6A58248140F899900637E29 /* common_atlas.plist in Resources */,
+				C6A58249140F899900637E29 /* common_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,7 +1042,6 @@
 				C6C2E0D0140E373700270E60 /* main.m in Sources */,
 				C6C2E0D3140E373700270E60 /* AppDelegate.m in Sources */,
 				C6C2E0D6140E373700270E60 /* RootViewController.m in Sources */,
-				C6C2E0D9140E373700270E60 /* HelloWorldLayer.m in Sources */,
 				C6715D14140E3EF9001A0EA6 /* InitScene.m in Sources */,
 				C60A000D140F472F00D3C28A /* GameObject.m in Sources */,
 				C60A0013140F4D3E00D3C28A /* GameScene.m in Sources */,
@@ -1017,10 +1050,11 @@
 				C60A0020140F616D00D3C28A /* ChorusSinger.m in Sources */,
 				C60A0023140F61AD00D3C28A /* ChorusPlayer.m in Sources */,
 				C60A0026140F620D00D3C28A /* ChorusConductor.m in Sources */,
-				C60A002F140F632600D3C28A /* ChoosGameModeScene.m in Sources */,
+				C60A002F140F632600D3C28A /* ChooseGameModeScene.m in Sources */,
 				C60A0032140F633400D3C28A /* ChooseGameLevelScene.m in Sources */,
 				C60A0035140F63A000D3C28A /* LevelScene.m in Sources */,
 				C60A0038140F641E00D3C28A /* ChorusLevelScene.m in Sources */,
+				C6C34B0D140F6CC300061CC8 /* GameSceneLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,7 +1108,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = TIT/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tap In Tune";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1089,7 +1123,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = TIT/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tap In Tune";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

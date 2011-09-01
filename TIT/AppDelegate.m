@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  TIT
 //
-//  Created by swanky on 11-8-31.
+//  Created by Swanky on 11-8-31.
 //  Copyright iBrother 2011. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "ChorusLevelScene.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [ChorusLevelScene node]];
 }
 
 

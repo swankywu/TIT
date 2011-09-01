@@ -1,15 +1,15 @@
 //
-//  InitScene.h
+//  GameSceneLayer.h
 //  TIT
 //
-//  Created by Swanky on 11-8-31.
+//  Created by swanky on 9/1/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface InitScene : CCScene {
+@interface GameSceneLayer : CCColorLayer {
     
 }
 

@@ -2,7 +2,7 @@
 //  ChooseGameLevelScene.m
 //  TIT
 //
-//  Created by swanky on 9/1/11.
+//  Created by Swanky on 9/1/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
