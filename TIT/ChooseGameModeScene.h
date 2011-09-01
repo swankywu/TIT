@@ -2,14 +2,14 @@
 //  ChoosGameModeScene.h
 //  TIT
 //
-//  Created by swanky on 9/1/11.
+//  Created by Swanky on 9/1/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface ChoosGameModeScene : CCScene {
+@interface ChooseGameModeScene : CCScene {
     
 }
 

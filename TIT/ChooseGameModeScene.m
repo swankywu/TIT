@@ -2,13 +2,13 @@
 //  ChoosGameModeScene.m
 //  TIT
 //
-//  Created by swanky on 9/1/11.
+//  Created by Swanky on 9/1/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
-#import "ChoosGameModeScene.h"
+#import "ChooseGameModeScene.h"
 
 
-@implementation ChoosGameModeScene
+@implementation ChooseGameModeScene
 
 @end
