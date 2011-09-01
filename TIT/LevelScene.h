@@ -1,15 +1,16 @@
 //
-//  InitScene.h
+//  LevelScene.h
 //  TIT
 //
-//  Created by swanky on 11-8-31.
+//  Created by swanky on 9/1/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameScene.h"
 
-@interface InitScene : CCScene {
+@interface LevelScene : GameScene {
     
 }
 
