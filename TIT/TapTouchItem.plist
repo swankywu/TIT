@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tapStartAnim</key>
+	<dict>
+		<key>delay</key>
+		<string>0.1</string>
+		<key>filenamePrefix</key>
+		<string>touch</string>
+		<key>animationFrames</key>
+		<string>0</string>
+	</dict>
+	<key>tapKeepingAnim</key>
+	<dict>
+		<key>delay</key>
+		<string>0.1</string>
+		<key>filenamePrefix</key>
+		<string>touch</string>
+		<key>animationFrames</key>
+		<string>0</string>
+	</dict>
+	<key>tapMovingAnim</key>
+	<dict>
+		<key>delay</key>
+		<string>0.1</string>
+		<key>filenamePrefix</key>
+		<string>touch</string>
+		<key>animationFrames</key>
+		<string>0</string>
+	</dict>
+	<key>tapEndAnim</key>
+	<dict>
+		<key>delay</key>
+		<string>0.1</string>
+		<key>filenamePrefix</key>
+		<string>touch</string>
+		<key>animationFrames</key>
+		<string>0</string>
+	</dict>
+</dict>
+</plist>

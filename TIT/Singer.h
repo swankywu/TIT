@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GameCharacter.h"
+#import "SimpleAudioEngine.h"
 
 @interface Singer : GameCharacter {
-    
+    CDSoundSource *soundSource;
 }
+
+
+
 
 @end

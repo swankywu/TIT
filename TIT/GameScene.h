@@ -11,7 +11,7 @@
 #import "GameSceneLayer.h"
 
 @interface GameScene : CCScene {
-    GameSceneLayer *_rootLayer;
+    GameSceneLayer *rootLayer;
 }
 
 @property (retain, nonatomic) GameSceneLayer *rootLayer;

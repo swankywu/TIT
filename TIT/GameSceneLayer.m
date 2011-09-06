@@ -7,67 +7,82 @@
 //
 
 #import "GameSceneLayer.h"
-
+#define kZTapTouchItemNode 100
 
 @implementation GameSceneLayer
-@synthesize touchSprite = _touchSprite;
-@synthesize batchNode   = _batchNode;
-@synthesize isTouched = _isTouched;
+@synthesize batchNode;
+@synthesize tapTouchItem;
+@synthesize isTouched;
+@synthesize gesture;
 
+- (void)dealloc{
+    self.tapTouchItem = nil;
+    self.gesture = nil;
+    [super dealloc];
+}
 
 - (id)init{
-    self = [super initWithColor:ccc4(0xcc, 0xcc, 0xcc, 0xff)];
+    self = [super initWithColor:ccc4(0xff, 0xff, 0xff, 0xff)];
     if( self ) {
         self.isTouchEnabled = YES;
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"common_atlas.plist"];
-        self.batchNode= [CCSpriteBatchNode batchNodeWithFile:@"common_atlas.png"];
-        self.touchSprite = [CCSprite spriteWithSpriteFrameName:@"touch0.png"];
+        self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"common_atlas.png"];
         
-        [_batchNode addChild:_touchSprite];
+        self.tapTouchItem = [TapTouchItem spriteWithSpriteFrameName:@"touch0.png"];        
+        [batchNode addChild:tapTouchItem z:kZTapTouchItemNode];
         
+        [self addChild:batchNode];
         
-        CGSize winSize = [CCDirector sharedDirector].winSize;
-        
-        _touchSprite.position = ccp(winSize.width/2, winSize.height/2);
-
-
+        //others
+        IBroGesture *g = [[IBroGesture alloc] init];
+        self.gesture = g;
+        [g release];
     }
     
     return self;
 }
 
-- (void)dealloc{
-    self.batchNode = nil;
-    self.touchSprite = nil;
-    [super dealloc];
-}
+
 
 #pragma mark - touch events
 
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    _isTouched = YES;
-    [self addChild:_batchNode];
+    isTouched = YES;
+    [tapTouchItem changeState:GameCharacterStateTapStart];
     [self ccTouchesMoved:touches withEvent:event];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    isTouched = YES;
     //get touch pos
     UITouch *touch = [touches anyObject];
     CGPoint pos = [touch locationInView:touch.view];
     pos = [[CCDirector sharedDirector] convertToGL:pos];
     
     //set touch sprite position
-    _touchSprite.position = pos;
-    
+    tapTouchItem.position = pos;
+
+    //guesture
+
+    [gesture addPoint:pos];
 }
 
 - (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
-    _isTouched = NO;
+    isTouched = NO;
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self removeChild:_batchNode cleanup:NO];
-    _isTouched = NO;
+    [tapTouchItem changeState:GameCharacterStateTapEnd];
+    isTouched = NO;
+    
+    //get touch pos
+    UITouch *touch = [touches anyObject];
+    CGPoint pos = [touch locationInView:touch.view];
+    pos = [[CCDirector sharedDirector] convertToGL:pos];
+    
+    //guesture
+    [gesture addFinishedPoint:pos];
 }
+
 @end

@@ -8,10 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CommonProtocols.h"
 #import "GameObject.h"
 
 @interface GameCharacter : GameObject {
-    
+@private
+    NSMutableDictionary *animDic;
+    GameCharacterState state;
 }
+
+@property (nonatomic, retain) NSMutableDictionary *animDic;
+@property (readwrite) GameCharacterState state;
+
+- (void)changeState:(GameCharacterState)newState;
+-(void)checkAndClampSpritePosition;
+- (CCAnimation*)loadPlistForAnimationWithName:(NSString*)animationName
+                                 andClassName:(NSString*)className
+                       withGameCharacterState:(GameCharacterState)theState;
+
 
 @end

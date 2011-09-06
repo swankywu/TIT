@@ -10,8 +10,8 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "ChorusLevelScene.h"
 #import "RootViewController.h"
+#import "InitScene.h"
 
 @implementation AppDelegate
 
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [ChorusLevelScene node]];
+	[[CCDirector sharedDirector] runWithScene: [InitScene node]];
 }
 
 

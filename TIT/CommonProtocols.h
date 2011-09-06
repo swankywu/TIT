@@ -10,48 +10,43 @@ typedef enum {
     PhaserDirectionLeft,
     PhaserDirectionRight
 } PhaserDirection;
+
 typedef enum {
-    CharacterStateSpawning,
-    CharacterStateIdle,
-    CharacterStateCrouching,
-    CharacterStateStandingUp,
-    CharacterStateWalking,
-    CharacterStateAttacking,
-    CharacterStateJumping,
-    CharacterStateBreathing,
-    CharacterStateTakingDamage,
-    CharacterStateDead,
-    CharacterStateTraveling,
-    CharacterStateRotating,
-    CharacterStateDrilling,
-    CharacterStateAfterJumping
-} CharacterState; 
+    GameCharacterStateIdle=1,
+    GameCharacterStateSingLow,
+    GameCharacterStateSingHigh,
+    GameCharacterStateSingStare,
+    
+    GameCharacterStateTapStart,
+    GameCharacterStateTapKeeping,
+    GameCharacterStateTapMoving,
+    GameCharacterStateTapEnd,
+    
+//    GameCharacterStateWalking=100,
+//    GameCharacterStateAttacking,
+//    GameCharacterStateJumping,
+//    GameCharacterStateBreathing,
+//    GameCharacterStateTakingDamage,
+//    GameCharacterStateDead,
+//    GameCharacterStateTraveling,
+//    GameCharacterStateRotating,
+//    GameCharacterStateDrilling,
+//    GameCharacterStateAfterJumping
+} GameCharacterState; 
+
 typedef enum {
-    kObjectTypeNone,
-    kPowerUpTypeHealth,
-    kPowerUpTypeMallet,
-    kEnemyTypeRadarDish,
-    kEnemyTypeSpaceCargoShip,
-    kEnemyTypeAlienRobot,
-    kEnemyTypePhaser,
-    kVikingType,
-    kSkullType,
-    kRockType,
-    kMeteorType,
-    kFrozenVikingType,
-    kIceType,
-    kLongBlockType,
-    kCartType,
-    kSpikesType,
-    kDiggerType,
-    kGroundType
+    GameObjectTypeNone,
+    GameObjectTypeSinger,
+    GameObjectTypeChorusSinger,
+    GameObjectTypeChorusConductor,
 } GameObjectType;
 
 @protocol GameplayLayerDelegate
 -(void)createObjectOfType:(GameObjectType)objectType
-               withHealth:(int)initialHealth
                atLocation:(CGPoint)spawnLocation
                withZValue:(int)ZValue;
 -(void)createPhaserWithDirection:(PhaserDirection)phaserDirection
                      andPosition:(CGPoint)spawnPosition;
 @end
+
+

@@ -1,16 +1,16 @@
 //
-//  InitScene.h
+//  TapTouchItem.h
 //  TIT
 //
-//  Created by Swanky on 11-8-31.
+//  Created by swanky on 9/2/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameScene.h"
+#import "GameCharacter.h"
 
-@interface InitScene : GameScene {
+@interface TapTouchItem : GameCharacter {
     
 }
 

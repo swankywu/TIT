@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>idelAnim</key>
+	<dict>
+		<key>delay</key>
+		<real>0.1</real>
+		<key>filenamePrefix</key>
+		<string>singer</string>
+		<key>animationFrames</key>
+		<string>0,1,2,3,4</string>
+	</dict>
+	<key>singLowAnim</key>
+	<dict>
+		<key>delay</key>
+		<real>0.1</real>
+		<key>filenamePrefix</key>
+		<string>singer_low</string>
+		<key>animationFrames</key>
+		<string>0,1,2</string>
+	</dict>
+	<key>singHighAnim</key>
+	<dict>
+		<key>delay</key>
+		<real>0.5</real>
+		<key>filenamePrefix</key>
+		<string>singer_high</string>
+		<key>animationFrames</key>
+		<string>1,1</string>
+	</dict>
+	<key>singStareAnim</key>
+	<dict>
+		<key>delay</key>
+		<real>0.1</real>
+		<key>filenamePrefix</key>
+		<string>singer</string>
+		<key>animationFrames</key>
+		<string>0,1,2,3,4</string>
+	</dict>
+</dict>
+</plist>

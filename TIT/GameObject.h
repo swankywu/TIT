@@ -8,9 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CommonProtocols.h"
 
 @interface GameObject : CCSprite {
-    
+@private
+    BOOL isActive;
+    BOOL reactsToScreenBoundaries;
+    CGSize screenSize;
+    GameObjectType type;
 }
 
+@property BOOL isActive;
+@property BOOL reactsToScreenBoundaries;
+@property CGSize screenSize;
+@property GameObjectType type;
+
+
+
+- (void)updateStateWidthDeltaTime:(float)deltaTime
+             andListOfGameObjects:(CCArray*)listOfGameObjects;
+- (CGRect)adjustedBoundingBox;
+- (CCAnimation*)loadPlistForAnimationWithName:(NSString*)animationName
+                                 andClassName:(NSString*)className;
 @end

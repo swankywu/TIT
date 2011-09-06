@@ -8,17 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "TapTouchItem.h"
+#import "IBroGesture.h"
 
-@interface GameSceneLayer : CCLayerColor {
-    bool _isTouched;
-    CCSprite *_touchSprite;
-    CCSpriteBatchNode *_batchNode;
-    
+@interface GameSceneLayer : CCLayerColor{
+@private
+    bool isTouched;
+    CCSpriteBatchNode *batchNode;
+    TapTouchItem *tapTouchItem;    
+    IBroGesture *gesture;
 }
 
-@property (nonatomic, retain) CCSprite *touchSprite;  
-@property (nonatomic, retain) CCSpriteBatchNode *batchNode;  
-
-@property (nonatomic, readonly) bool isTouched;
+@property (nonatomic, retain) CCSpriteBatchNode *batchNode;
+@property (nonatomic, retain) TapTouchItem *tapTouchItem;  
+@property (readonly) bool isTouched;
+@property (nonatomic, retain) IBroGesture *gesture;
 
 @end

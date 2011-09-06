@@ -10,17 +10,96 @@
 
 
 @implementation Singer
-- (id) init{
-    self = [super init];
-    if( self ){
-        CCSpriteBatchNode *batchNode = [CCSpriteBatchNode batchNodeWithFile:@"common_atlas.png"];
-        CCSprite *singerSprite = [CCSprite spriteWithSpriteFrameName:@"singer0.png"];
-        self.contentSize = singerSprite.contentSize;
-        [batchNode addChild:singerSprite];
-        [self addChild:batchNode];
-        batchNode.position = ccp(self.contentSize.width/2,self.contentSize.height/2);
 
+- (void)dealloc{
+    [soundSource release];
+    soundSource = nil;
+    [super dealloc];
+}
+
+- (void)initAnimations{
+#define kClassName @"Singer"
+    
+    [self loadPlistForAnimationWithName:@"idelAnim"
+                           andClassName:kClassName
+                 withGameCharacterState:GameCharacterStateIdle];
+    [self loadPlistForAnimationWithName:@"singLowAnim"
+                           andClassName:kClassName
+                 withGameCharacterState:GameCharacterStateSingLow];
+    [self loadPlistForAnimationWithName:@"singHighAnim"
+                           andClassName:kClassName
+                 withGameCharacterState:GameCharacterStateSingHigh];
+    [self loadPlistForAnimationWithName:@"singStareAnim"
+                           andClassName:kClassName
+                 withGameCharacterState:GameCharacterStateSingStare];
+}
+
+
+- (id) init{
+    if( self = [super init] ){
+        soundSource = nil;
+        //self.contentSize = CGSizeMake(86.0f, 144.0f);
+        self.type = GameObjectTypeSinger;
+        [self initAnimations];
+        [self changeState:GameCharacterStateIdle];
     }
     return self;
 }
+
+#pragma mark - 
+
+- (void)changeState:(GameCharacterState)newState{
+
+    static int soundPlayId = -1;
+    
+    if( newState == self.state) return;
+    if( self.state == GameCharacterStateSingHigh && [self numberOfRunningActions] > 0){
+        if( newState == GameCharacterStateSingLow)
+            return;
+        
+    }
+    
+    [self stopAllActions];
+    [self setState:newState];
+
+    
+    id anim = [self.animDic objectForKey:[NSString stringWithFormat:@"%d", newState]];
+    id action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
+    if( newState == GameCharacterStateIdle || newState == GameCharacterStateSingLow ){
+        action = [CCRepeatForever actionWithAction:action];
+        
+    }
+    if( !soundSource){
+        soundSource = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"sing_low.aiff"];
+        [soundSource setPitch:1.0f];
+        [soundSource setPan:5.0f];
+        [soundSource setGain:1.0f];
+        [soundSource setLooping:YES];
+        [soundSource retain];
+    }
+
+    if( newState == GameCharacterStateIdle ){
+        if( [soundSource isPlaying] )
+            [soundSource stop];
+        if( soundPlayId > -1 ){
+            [[SimpleAudioEngine sharedEngine] stopEffect:soundPlayId];
+            soundPlayId = -1;
+        }
+    } else if (newState == GameCharacterStateSingLow ){
+        [soundSource play];
+
+
+    } else if(newState == GameCharacterStateSingHigh){
+        
+        soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"sing_low.aiff" pitch:1.0f pan:1.0f gain:1.0f];
+    }
+    
+    [self runAction:action];
+}
+
+- (void)updateStateWidthDeltaTime:(float)deltaTime
+             andListOfGameObjects:(CCArray *)listOfGameObjects{
+    
+}
+
 @end
