@@ -22,7 +22,6 @@
 }
 - (id)init{
     if(self = [super init]){
-        //[[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"sing_low.aiff"];
         [self performSelector:@selector(changeScene) withObject:nil afterDelay:0.1];
 

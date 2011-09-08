@@ -8,15 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "ChorusLayer.h"
 #import "LevelScene.h"
-#import "ChorusSinger.h"
 
-@interface ChorusScene : LevelScene<IBroGestureDelegate> {
-    ChorusSinger *player;
-    NSArray *otherChorusSingers;
+
+@interface ChorusScene : LevelScene{
+    CCLayer *bgLayer;
+    ChorusLayer *gameLayer;
 }
+@property (nonatomic, retain) CCLayer *bgLayer;
+@property (nonatomic, retain) ChorusLayer *gameLayer;
 
-@property (nonatomic, retain) ChorusSinger *player;
-@property (nonatomic,retain) NSArray *otherChorusSingers;
 
 @end

@@ -8,9 +8,36 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum{
+    IBroGestureTypeUnkown = 0,
+    IBroGestureTypeLine,
+    
+} IBroGestureType;
+
+
+
+@interface IBroGestureArgs : NSObject{
+    CGPoint startPoint;
+    CGPoint endPoint;
+    IBroGestureType gestureType;
+    NSTimeInterval deltaTime;
+}
+
+@property CGPoint startPoint;
+@property CGPoint endPoint;
+@property IBroGestureType gestureType;
+@property NSTimeInterval deltaTime;
+
++ (IBroGestureArgs*)gestureArgsWithStartPoint:(CGPoint)p0
+                                 withEndPoint:(CGPoint)p1
+                                      andType:(IBroGestureType)type
+                                 andDeltaTime:(NSTimeInterval)detal;
+
+@end
+
 @protocol IBroGestureDelegate <NSObject>
 
-- (void)lineGestureDetected:(NSNumber*)delta;
+- (void)gestureDetected:(IBroGestureArgs*)gestureArgs;
 
 @end
 
@@ -26,5 +53,8 @@
 
 - (void)restoreDefault;
 - (void)addPoint:(CGPoint) point;
-- (void)addFinishedPoint:(CGPoint) point;
+- (void)decideGestureByLastPoint:(CGPoint) point;
 @end
+
+
+

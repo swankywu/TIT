@@ -18,6 +18,9 @@
 		C60A0026140F620D00D3C28A /* ChorusConductor.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0025140F620D00D3C28A /* ChorusConductor.m */; };
 		C60A0035140F63A000D3C28A /* LevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0034140F639F00D3C28A /* LevelScene.m */; };
 		C60A0038140F641E00D3C28A /* ChorusScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C60A0037140F641D00D3C28A /* ChorusScene.m */; };
+		C62EFA2D14186A3700D2CF1E /* GestureLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62EFA2C14186A3700D2CF1E /* GestureLayer.m */; };
+		C62EFA3014186B7D00D2CF1E /* ChorusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */; };
+		C62EFA34141882B100D2CF1E /* TutorialSong.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62EFA33141882B100D2CF1E /* TutorialSong.plist */; };
 		C644DABA14146E3300DEC79F /* TapTouchItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = C644DAB914146E3300DEC79F /* TapTouchItem.plist */; };
 		C644DABE1414C2F600DEC79F /* sing_low.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C644DABD1414C2F600DEC79F /* sing_low.aiff */; };
 		C644DACE1415D74100DEC79F /* IBroGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C644DACD1415D74000DEC79F /* IBroGesture.m */; };
@@ -138,7 +141,6 @@
 		C6C2E0D0140E373700270E60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0CF140E373700270E60 /* main.m */; };
 		C6C2E0D3140E373700270E60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0D2140E373700270E60 /* AppDelegate.m */; };
 		C6C2E0D6140E373700270E60 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2E0D5140E373700270E60 /* RootViewController.m */; };
-		C6C34B0D140F6CC300061CC8 /* GameSceneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C34B0C140F6CC300061CC8 /* GameSceneLayer.m */; };
 		C6C6E1FC14170ED4008A5B24 /* IBroMath.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C6E1FB14170ED4008A5B24 /* IBroMath.m */; };
 		C6C6E20014172F45008A5B24 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C6E1FF14172F45008A5B24 /* GameManager.m */; };
 /* End PBXBuildFile section */
@@ -165,6 +167,11 @@
 		C60A0034140F639F00D3C28A /* LevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelScene.m; sourceTree = "<group>"; };
 		C60A0036140F641D00D3C28A /* ChorusScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChorusScene.h; sourceTree = "<group>"; };
 		C60A0037140F641D00D3C28A /* ChorusScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusScene.m; sourceTree = "<group>"; };
+		C62EFA2B14186A3700D2CF1E /* GestureLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureLayer.h; sourceTree = "<group>"; };
+		C62EFA2C14186A3700D2CF1E /* GestureLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureLayer.m; sourceTree = "<group>"; };
+		C62EFA2E14186B7C00D2CF1E /* ChorusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChorusLayer.h; sourceTree = "<group>"; };
+		C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusLayer.m; sourceTree = "<group>"; };
+		C62EFA33141882B100D2CF1E /* TutorialSong.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialSong.plist; sourceTree = "<group>"; };
 		C644DAB914146E3300DEC79F /* TapTouchItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapTouchItem.plist; sourceTree = "<group>"; };
 		C644DABD1414C2F600DEC79F /* sing_low.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = sing_low.aiff; sourceTree = "<group>"; };
 		C644DACC1415D74000DEC79F /* IBroGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBroGesture.h; sourceTree = "<group>"; };
@@ -407,8 +414,6 @@
 		C6C2E0D4140E373700270E60 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = RootViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C6C2E0D5140E373700270E60 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RootViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C6C2E0DA140E373700270E60 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GameConfig.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C6C34B0B140F6CC300061CC8 /* GameSceneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneLayer.h; sourceTree = "<group>"; };
-		C6C34B0C140F6CC300061CC8 /* GameSceneLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneLayer.m; sourceTree = "<group>"; };
 		C6C6E1FA14170ED4008A5B24 /* IBroMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBroMath.h; sourceTree = "<group>"; };
 		C6C6E1FB14170ED4008A5B24 /* IBroMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBroMath.m; sourceTree = "<group>"; };
 		C6C6E1FE14172F44008A5B24 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
@@ -439,8 +444,29 @@
 			children = (
 				C60665001410B22900E8E125 /* Singer.plist */,
 				C644DAB914146E3300DEC79F /* TapTouchItem.plist */,
+				C62EFA33141882B100D2CF1E /* TutorialSong.plist */,
 			);
 			name = Plists;
+			sourceTree = "<group>";
+		};
+		C62EFA311418714400D2CF1E /* Chorus */ = {
+			isa = PBXGroup;
+			children = (
+				C62EFA2E14186B7C00D2CF1E /* ChorusLayer.h */,
+				C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */,
+				C60A0036140F641D00D3C28A /* ChorusScene.h */,
+				C60A0037140F641D00D3C28A /* ChorusScene.m */,
+			);
+			name = Chorus;
+			sourceTree = "<group>";
+		};
+		C62EFA321418716E00D2CF1E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				C6715D12140E3EF9001A0EA6 /* SplashScene.h */,
+				C6715D13140E3EF9001A0EA6 /* SplashScene.m */,
+			);
+			name = Splash;
 			sourceTree = "<group>";
 		};
 		C644DABC1414C27400DEC79F /* Audio */ = {
@@ -454,16 +480,14 @@
 		C6715D10140E3E8C001A0EA6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C6C34B0B140F6CC300061CC8 /* GameSceneLayer.h */,
-				C6C34B0C140F6CC300061CC8 /* GameSceneLayer.m */,
+				C62EFA321418716E00D2CF1E /* Splash */,
+				C62EFA311418714400D2CF1E /* Chorus */,
+				C62EFA2B14186A3700D2CF1E /* GestureLayer.h */,
+				C62EFA2C14186A3700D2CF1E /* GestureLayer.m */,
 				C60A0011140F4D3E00D3C28A /* GameScene.h */,
 				C60A0012140F4D3E00D3C28A /* GameScene.m */,
 				C60A0033140F639F00D3C28A /* LevelScene.h */,
 				C60A0034140F639F00D3C28A /* LevelScene.m */,
-				C60A0036140F641D00D3C28A /* ChorusScene.h */,
-				C60A0037140F641D00D3C28A /* ChorusScene.m */,
-				C6715D12140E3EF9001A0EA6 /* SplashScene.h */,
-				C6715D13140E3EF9001A0EA6 /* SplashScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -965,6 +989,7 @@
 				C60665011410B22900E8E125 /* Singer.plist in Resources */,
 				C644DABA14146E3300DEC79F /* TapTouchItem.plist in Resources */,
 				C644DABE1414C2F600DEC79F /* sing_low.aiff in Resources */,
+				C62EFA34141882B100D2CF1E /* TutorialSong.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,11 +1107,12 @@
 				C60A0026140F620D00D3C28A /* ChorusConductor.m in Sources */,
 				C60A0035140F63A000D3C28A /* LevelScene.m in Sources */,
 				C60A0038140F641E00D3C28A /* ChorusScene.m in Sources */,
-				C6C34B0D140F6CC300061CC8 /* GameSceneLayer.m in Sources */,
 				C606650C1410DB0000E8E125 /* TapTouchItem.m in Sources */,
 				C644DACE1415D74100DEC79F /* IBroGesture.m in Sources */,
 				C6C6E1FC14170ED4008A5B24 /* IBroMath.m in Sources */,
 				C6C6E20014172F45008A5B24 /* GameManager.m in Sources */,
+				C62EFA2D14186A3700D2CF1E /* GestureLayer.m in Sources */,
+				C62EFA3014186B7D00D2CF1E /* ChorusLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,8 +1165,10 @@
 				GCC_PREFIX_HEADER = TIT/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = TIT/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Tap In Tune";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1154,8 +1182,10 @@
 				GCC_PREFIX_HEADER = TIT/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = TIT/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Tap In Tune";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

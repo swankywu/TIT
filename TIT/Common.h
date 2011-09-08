@@ -20,6 +20,7 @@ typedef enum {
     GameCharacterStateTapStart,
     GameCharacterStateTapKeeping,
     GameCharacterStateTapMoving,
+    GameCharacterStateTapFinishing,
     GameCharacterStateTapEnd,
     
 //    GameCharacterStateWalking=100,

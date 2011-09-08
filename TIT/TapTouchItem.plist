@@ -5,7 +5,7 @@
 	<key>tapStartAnim</key>
 	<dict>
 		<key>delay</key>
-		<string>0.1</string>
+		<integer>0</integer>
 		<key>filenamePrefix</key>
 		<string>touch</string>
 		<key>animationFrames</key>
@@ -14,7 +14,7 @@
 	<key>tapKeepingAnim</key>
 	<dict>
 		<key>delay</key>
-		<string>0.1</string>
+		<integer>0</integer>
 		<key>filenamePrefix</key>
 		<string>touch</string>
 		<key>animationFrames</key>
@@ -23,7 +23,16 @@
 	<key>tapMovingAnim</key>
 	<dict>
 		<key>delay</key>
-		<string>0.1</string>
+		<integer>0</integer>
+		<key>filenamePrefix</key>
+		<string>touch</string>
+		<key>animationFrames</key>
+		<string>0</string>
+	</dict>
+	<key>tapFinishingAnim</key>
+	<dict>
+		<key>delay</key>
+		<integer>0</integer>
 		<key>filenamePrefix</key>
 		<string>touch</string>
 		<key>animationFrames</key>
@@ -32,7 +41,7 @@
 	<key>tapEndAnim</key>
 	<dict>
 		<key>delay</key>
-		<string>0.1</string>
+		<real>0.1</real>
 		<key>filenamePrefix</key>
 		<string>touch</string>
 		<key>animationFrames</key>

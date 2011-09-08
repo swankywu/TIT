@@ -10,63 +10,27 @@
 #import "ChorusScene.h"
 
 
-#define kSingerIntervalWidth 50
-#define kSingerIntervalHeight 20
-#define kSingerMarginBottom 40
-#define kSingerBoundX (86/2)
-#define kSingerBoundY (144/2)
-
 @implementation ChorusScene
-@synthesize player;
-@synthesize otherChorusSingers;
+@synthesize bgLayer;
+@synthesize gameLayer;
 
 - (void)dealloc{
+    self.bgLayer = nil;
+    self.gameLayer = nil;
     [super dealloc];
 }
 
 - (id)init{
     if (self = [super init]) {
-        NSMutableArray *arr = [[NSMutableArray alloc] init];
-
-        for (int i=1; i<=3; ++i) {
-            ChorusSinger *singer = [ChorusSinger spriteWithSpriteFrameName:@"singer0.png"];
-            singer.position = ccp(singer.screenSize.width-(kSingerIntervalWidth+kSingerBoundX)*i, 
-                                  kSingerIntervalHeight*i + kSingerBoundY + kSingerMarginBottom);
-            [self.rootLayer.batchNode addChild:singer];
-            if( player == nil)
-                self.player = singer;
-            else
-                [arr addObject:singer];
-
-        }
-        self.otherChorusSingers = arr;       
-        [arr release];
-        
-        
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bg.mp3" loop:YES];
-        [self scheduleUpdate];
-        
-        //gesture
-        self.rootLayer.gesture.delegate = self;
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        self.bgLayer = [CCLayerColor layerWithColor:ccc4(0xff,0xff,0xff,0xff)
+                                              width:winSize.width 
+                                             height:winSize.height];
+        [self addChild:bgLayer z:0];
+        self.gameLayer = [ChorusLayer node];
+        [self addChild:gameLayer z:1];
     }
     return self;
-}
-
-- (void)update:(ccTime)dt {
-    if( self.rootLayer.isTouched ) {
-        [player changeState: GameCharacterStateIdle];
-    } else{
-        [player changeState: GameCharacterStateSingLow];
-    }
-}
-
-
-#pragma mark - gesture delegate
-
-- (void)lineGestureDetected:(NSNumber*)delta{
-    //NSTimeInterval time = [delta doubleValue];
-    NSLog(@"ChorusLevelScene -> line gesture detected!");
-    [player changeState:GameCharacterStateSingHigh];
 }
 
 

@@ -11,10 +11,9 @@
 
 @implementation GameScene
 
-@synthesize rootLayer;
 
 - (void)dealloc{
-    self.rootLayer = nil;
+
     [super dealloc];
 }
 
@@ -22,8 +21,7 @@
 - (id)init {
     self = [super init];
     if( self){
-        self.rootLayer = [GameSceneLayer node];
-        [self addChild:rootLayer z:0];
+
     }
     return self;
 }

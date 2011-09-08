@@ -1,8 +1,8 @@
 //
-//  GameSceneLayer.h
+//  GestureLayer.h
 //  TIT
 //
-//  Created by Swanky on 9/1/11.
+//  Created by swanky on 9/8/11.
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 #import "TapTouchItem.h"
 #import "IBroGesture.h"
 
-@interface GameSceneLayer : CCLayerColor{
+@interface GestureLayer : CCLayer<IBroGestureDelegate> {
 @private
     bool isTouched;
     CCSpriteBatchNode *batchNode;
@@ -23,5 +23,7 @@
 @property (nonatomic, retain) TapTouchItem *tapTouchItem;  
 @property (readonly) bool isTouched;
 @property (nonatomic, retain) IBroGesture *gesture;
+
+- (void)gestureDetected:(IBroGestureArgs*)gestureArgs;
 
 @end

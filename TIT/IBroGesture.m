@@ -14,6 +14,23 @@
 #define kMinAngle 20 //判断最小角度
 #define kMinPointsLength 50 //最短距离
 
+@implementation IBroGestureArgs
+@synthesize startPoint,endPoint,gestureType,deltaTime;
+
++ (IBroGestureArgs*)gestureArgsWithStartPoint:(CGPoint)p0
+                                 withEndPoint:(CGPoint)p1
+                                      andType:(IBroGestureType)type
+                                 andDeltaTime:(NSTimeInterval)detal{
+    IBroGestureArgs* args = [[[IBroGestureArgs alloc] init] autorelease];
+    
+    args.startPoint = p0;
+    args.endPoint = p1;
+    args.gestureType = type;
+    args.deltaTime = detal;
+    return args;
+}
+@end
+
 @implementation IBroGesture
 @synthesize delegate;
 
@@ -60,7 +77,7 @@
 
 }
 
-- (void)addFinishedPoint:(CGPoint) finishedPoint{
+- (void)decideGestureByLastPoint:(CGPoint) finishedPoint{
     if( [guesturePoints count] <2 )return;
     NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
     if( now - lastTime > kMinDeltaTime )return;
@@ -68,10 +85,10 @@
     CGPoint startPoint = CGPointFromString([guesturePoints objectAtIndex:0]);
     CGFloat lineLength = distanceBetweenPoints(startPoint, finishedPoint);
     
-    NSLog(@"-----------------------");
-    NSLog(@"up delta time:%f", now - lastTime);
-    NSLog(@"points count: %d", [guesturePoints count]);
-    NSLog(@"distance between start point and end point:%f", lineLength);
+//    NSLog(@"IBroGesture->-----------------------");
+//    NSLog(@"IBroGesture->up delta time:%f", now - lastTime);
+//    NSLog(@"IBroGesture->points count: %d", [guesturePoints count]);
+//    NSLog(@"IBroGesture->distance between start point and end point:%f", lineLength);
     
     
     if(lineLength > kMinPointsLength) {
@@ -86,7 +103,7 @@
             }
             CGLine line = CGMakeLine(startPoint, current);
             CGFloat angle = angleBetweenLines(lastLine, line);
-            //NSLog(@"angle%d:%f", i, angle);
+            //NSLog(@"IBroGesture->angle%d:%f", i, angle);
             if( angle  > kMinAngle ){ //line gesture
                 ++notLineCount;
             }
@@ -101,10 +118,12 @@
             
             NSTimeInterval deltaTime = now - startTime; //using velocity
             if( [self.delegate conformsToProtocol:@protocol(IBroGestureDelegate)] 
-               && [self.delegate respondsToSelector:@selector(lineGestureDetected:)] ){
-                [self.delegate 
-                    performSelector:@selector(lineGestureDetected:)
-                         withObject:[NSNumber numberWithDouble:deltaTime]];
+               && [self.delegate respondsToSelector:@selector(gestureDetected:)] ){
+                [self.delegate performSelector:@selector(gestureDetected:)
+                                    withObject:[IBroGestureArgs gestureArgsWithStartPoint:startPoint 
+                                                                  withEndPoint:finishedPoint
+                                                                       andType:IBroGestureTypeLine 
+                                                                  andDeltaTime:deltaTime]];
             }
         }
         

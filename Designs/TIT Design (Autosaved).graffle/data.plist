@@ -40,7 +40,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2011-09-08 03:57:46 +0000</string>
+	<string>2011-09-08 03:57:54 +0000</string>
 	<key>Modifier</key>
 	<string>Swanky</string>
 	<key>NotesVisible</key>
@@ -1753,7 +1753,7 @@ wuhaiou@rich-media.com.cn\
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{490.04147, 490.50507}, {16, 14}}</string>
+					<string>{{487.92389, 495.53622}, {16, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -1820,7 +1820,7 @@ wuhaiou@rich-media.com.cn\
 					<integer>86505</integer>
 					<key>Points</key>
 					<array>
-						<string>{354, 446}</string>
+						<string>{341, 498}</string>
 						<string>{513, 506}</string>
 					</array>
 					<key>Style</key>
@@ -1950,7 +1950,7 @@ CCLayerColor}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{473.45911, 269.28876}, {16, 14}}</string>
+					<string>{{473.22314, 270.12067}, {16, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -2017,7 +2017,7 @@ CCLayerColor}</string>
 					<integer>86502</integer>
 					<key>Points</key>
 					<array>
-						<string>{356, 305}</string>
+						<string>{355, 313}</string>
 						<string>{496, 276}</string>
 					</array>
 					<key>Style</key>
@@ -2313,7 +2313,7 @@ CCLayerColor}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{454.08194, 401.36191}, {16, 14}}</string>
+					<string>{{452.10187, 406.89395}, {16, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -2380,7 +2380,7 @@ CCLayerColor}</string>
 					<integer>16</integer>
 					<key>Points</key>
 					<array>
-						<string>{354, 446}</string>
+						<string>{341, 498}</string>
 						<string>{475, 407}</string>
 					</array>
 					<key>Style</key>
@@ -2446,8 +2446,8 @@ CCLayerColor}</string>
 					<integer>86486</integer>
 					<key>Points</key>
 					<array>
-						<string>{309, 428}</string>
-						<string>{311, 323}</string>
+						<string>{296, 480}</string>
+						<string>{310, 331}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -2479,7 +2479,7 @@ CCLayerColor}</string>
 					<integer>86489</integer>
 					<key>Points</key>
 					<array>
-						<string>{311, 287}</string>
+						<string>{310, 295}</string>
 						<string>{309, 207}</string>
 					</array>
 					<key>Style</key>
@@ -2502,7 +2502,7 @@ CCLayerColor}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{264, 428}, {90, 36}}</string>
+					<string>{{251, 480}, {90, 36}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -2533,7 +2533,7 @@ CCLayerColor}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{266, 287}, {90, 36}}</string>
+					<string>{{265, 295}, {90, 36}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>

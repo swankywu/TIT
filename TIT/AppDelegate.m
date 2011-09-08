@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-    [[GameManager sharedGameManager] runSceneWithSceneType:SceneTypeSplash];
+    [[GameManager sharedGameManager] runSceneWithSceneType:SceneTypeChorus];
 }
 
 
