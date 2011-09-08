@@ -41,6 +41,16 @@ typedef enum {
     GameObjectTypeChorusConductor,
 } GameObjectType;
 
+typedef enum {
+    SceneTypeUninitialized=0,
+    SceneTypeSplash,
+    SceneTypeMainMenuScene,
+
+    SceneTypeAdventureMap=100,
+    SceneTypeChorus,
+} SceneType;
+
+
 @protocol GameplayLayerDelegate
 -(void)createObjectOfType:(GameObjectType)objectType
                atLocation:(CGPoint)spawnLocation

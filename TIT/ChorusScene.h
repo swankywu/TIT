@@ -11,7 +11,7 @@
 #import "LevelScene.h"
 #import "ChorusSinger.h"
 
-@interface ChorusLevelScene : LevelScene<IBroGestureDelegate> {
+@interface ChorusScene : LevelScene<IBroGestureDelegate> {
     ChorusSinger *player;
     NSArray *otherChorusSingers;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "SimpleAudioEngine.h"
-#import "ChorusLevelScene.h"
+#import "ChorusScene.h"
 
 
 #define kSingerIntervalWidth 50
@@ -16,7 +16,7 @@
 #define kSingerBoundX (86/2)
 #define kSingerBoundY (144/2)
 
-@implementation ChorusLevelScene
+@implementation ChorusScene
 @synthesize player;
 @synthesize otherChorusSingers;
 

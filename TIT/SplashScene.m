@@ -7,18 +7,18 @@
 //
 
 #import "SimpleAudioEngine.h"
-#import "InitScene.h"
-#import "ChorusLevelScene.h"
+#import "SplashScene.h"
+#import "GameManager.h"
 
 
-@implementation InitScene
+@implementation SplashScene
 - (void)dealloc{
     [super dealloc];
 }
 
 
 - (void)changeScene{
-    [[CCDirector sharedDirector] replaceScene:[ChorusLevelScene node]];
+    [[GameManager sharedGameManager] runSceneWithSceneType:SceneTypeChorus];
 }
 - (id)init{
     if(self = [super init]){

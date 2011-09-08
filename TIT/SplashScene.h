@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "GameScene.h"
 
-@interface InitScene : GameScene {
+@interface SplashScene : GameScene {
     
 }
 
