@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "CommonProtocols.h"
+#import "Common.h"
 
 @interface GameObject : CCSprite {
 @private

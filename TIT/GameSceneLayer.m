@@ -51,6 +51,9 @@
     isTouched = YES;
     [tapTouchItem changeState:GameCharacterStateTapStart];
     [self ccTouchesMoved:touches withEvent:event];
+
+    //guesture
+    [gesture restoreDefault];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -64,7 +67,6 @@
     tapTouchItem.position = pos;
 
     //guesture
-
     [gesture addPoint:pos];
 }
 

@@ -7,10 +7,12 @@
 //
 
 #import "IBroGesture.h"
-#define kMaxPointCount 256  //最多采样点数目
-#define kMinDeltaTime 2  //触摸最短间隔时间
+#import "IBroMath.h"
+#define kMaxPointCount 16  //最多采样点数目
+#define kMinDeltaTime 0.2  //触摸最短间隔时间
 #define kMinPointsCount 4 //最少触摸的采样点数
-#define kMinAngle 20 //判断角度
+#define kMinAngle 20 //判断最小角度
+#define kMinPointsLength 50 //最短距离
 
 @implementation IBroGesture
 @synthesize delegate;
@@ -23,8 +25,7 @@
     [super dealloc];
 }
 
-- (id)init
-{
+- (id)init{
     self = [super init];
     if (self) {
         guesturePoints = [[NSMutableArray alloc] init];
@@ -36,58 +37,9 @@
 }
 
 #pragma mark -
-#define degreesToRadian(x) (M_PI * x / 180.0)
-#define radiansToDegrees(x) (180.0 * x / M_PI)
-
-CGFloat distanceBetweenPoints (CGPoint first, CGPoint second) {
-	CGFloat deltaX = second.x - first.x;
-	CGFloat deltaY = second.y - first.y;
-	return sqrt((deltaX*deltaX) + (deltaY*deltaY));
-};
-
-CGFloat angleBetweenPoints(CGPoint first, CGPoint second) {
-	CGFloat height = second.y - first.y;
-	CGFloat width = first.x - second.x;
-	CGFloat rads = atan(height/width);
-	return radiansToDegrees(rads);
-};
-
-
-CGFloat angleBetweenLines(CGLine line1, CGLine line2) {
-	
-	CGFloat a = line1.point2.x - line1.point1.x;
-	CGFloat b = line1.point2.y - line1.point1.y;
-	CGFloat c = line2.point2.x - line2.point1.x;
-	CGFloat d = line2.point2.y - line2.point1.y;
-	
-	CGFloat rads = acos(((a*c) + (b*d)) / ((sqrt(a*a + b*b)) * (sqrt(c*c + d*d))));
-	
-	return radiansToDegrees(rads);	
-};
-
-CGFloat distanceBetweenLines(CGLine line1, CGLine line2)
-{
-	CGFloat centerLine1 = (distanceBetweenPoints(line1.point1, line1.point2) / 2);
-	CGFloat centerLine2 = (distanceBetweenPoints(line2.point1, line2.point2) / 2);
-	
-	CGFloat distance = abs(centerLine1 - centerLine2);
-	
-	return distance;
-};
-
-CGLine CGMakeLine(CGPoint point1, CGPoint point2)
-{
-	CGLine nLine;
-	
-	nLine.point1 = point1;
-	nLine.point2 = point2;
-	
-	return nLine;
-};
-
-#pragma mark -
 
 - (void)restoreDefault{
+    lastTime = [NSDate timeIntervalSinceReferenceDate];
     [guesturePoints removeAllObjects];
 }
 
@@ -109,32 +61,32 @@ CGLine CGMakeLine(CGPoint point1, CGPoint point2)
 }
 
 - (void)addFinishedPoint:(CGPoint) finishedPoint{
-    lastTime = [NSDate timeIntervalSinceReferenceDate];
-    NSTimeInterval deltaTime = lastTime - startTime; //using velocity
+    if( [guesturePoints count] <2 )return;
+    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+    if( now - lastTime > kMinDeltaTime )return;
+    
+    CGPoint startPoint = CGPointFromString([guesturePoints objectAtIndex:0]);
+    CGFloat lineLength = distanceBetweenPoints(startPoint, finishedPoint);
+    
     NSLog(@"-----------------------");
+    NSLog(@"up delta time:%f", now - lastTime);
     NSLog(@"points count: %d", [guesturePoints count]);
-
-    if([guesturePoints count] > 2){ //detect condition
-        
-        CGPoint startPoint = CGPointFromString([guesturePoints objectAtIndex:0]);
+    NSLog(@"distance between start point and end point:%f", lineLength);
+    
+    
+    if(lineLength > kMinPointsLength) {
         CGLine lastLine = CGMakeLine(startPoint, finishedPoint);
-        
         BOOL isLine = NO;
-//        int interval = [guesturePoints count]/kMinPointsCount;
-//        if (interval == 0) {
-//            interval = 1;
-//        }
-        int equalCount = 0;
         int notLineCount = 0;
+        
         for (int i=1; i<[guesturePoints count]; i+=1) {
             CGPoint current = CGPointFromString([guesturePoints objectAtIndex:i]);
             if( startPoint.x == current.x && startPoint.y == current.y ){
-                ++ equalCount;
                 continue;
             }
             CGLine line = CGMakeLine(startPoint, current);
             CGFloat angle = angleBetweenLines(lastLine, line);
-            NSLog(@"angle%d:%f", i, angle);
+            //NSLog(@"angle%d:%f", i, angle);
             if( angle  > kMinAngle ){ //line gesture
                 ++notLineCount;
             }
@@ -144,12 +96,10 @@ CGLine CGMakeLine(CGPoint point1, CGPoint point2)
         } else {
             isLine = YES;
         }
-        if( [guesturePoints count] > kMinPointsCount && equalCount >= [guesturePoints count]/2 ){
-            isLine = YES;
-        }
         
         if( isLine ){
-
+            
+            NSTimeInterval deltaTime = now - startTime; //using velocity
             if( [self.delegate conformsToProtocol:@protocol(IBroGestureDelegate)] 
                && [self.delegate respondsToSelector:@selector(lineGestureDetected:)] ){
                 [self.delegate 
@@ -157,10 +107,8 @@ CGLine CGMakeLine(CGPoint point1, CGPoint point2)
                          withObject:[NSNumber numberWithDouble:deltaTime]];
             }
         }
-
         
     }
-    
     [self restoreDefault];
 }
 

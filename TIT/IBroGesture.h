@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef struct 
-{
-	CGPoint point1;
-	CGPoint point2;
-} CGLine;
-
 @protocol IBroGestureDelegate <NSObject>
 
 - (void)lineGestureDetected:(NSNumber*)delta;

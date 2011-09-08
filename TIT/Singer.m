@@ -65,10 +65,7 @@
     
     id anim = [self.animDic objectForKey:[NSString stringWithFormat:@"%d", newState]];
     id action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
-    if( newState == GameCharacterStateIdle || newState == GameCharacterStateSingLow ){
-        action = [CCRepeatForever actionWithAction:action];
-        
-    }
+
     if( !soundSource){
         soundSource = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"sing_low.aiff"];
         [soundSource setPitch:1.0f];
@@ -77,23 +74,25 @@
         [soundSource setLooping:YES];
         [soundSource retain];
     }
-
-    if( newState == GameCharacterStateIdle ){
-        if( [soundSource isPlaying] )
-            [soundSource stop];
+    
+    if( newState == GameCharacterStateIdle || newState == GameCharacterStateSingLow ){
         if( soundPlayId > -1 ){
             [[SimpleAudioEngine sharedEngine] stopEffect:soundPlayId];
             soundPlayId = -1;
         }
-    } else if (newState == GameCharacterStateSingLow ){
-        [soundSource play];
-
-
+        
+        if( newState == GameCharacterStateIdle ){
+            if( [soundSource isPlaying] )
+                [soundSource stop];
+        } else if(newState == GameCharacterStateSingLow){
+            [soundSource play];
+        }
+        action = [CCRepeatForever actionWithAction:action];
     } else if(newState == GameCharacterStateSingHigh){
         
         soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"sing_low.aiff" pitch:1.0f pan:1.0f gain:1.0f];
     }
-    
+        
     [self runAction:action];
 }
 
