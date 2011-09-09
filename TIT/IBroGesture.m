@@ -78,57 +78,66 @@
 }
 
 - (void)decideGestureByLastPoint:(CGPoint) finishedPoint{
-    if( [guesturePoints count] <2 )return;
+    
     NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-    if( now - lastTime > kMinDeltaTime )return;
+    NSTimeInterval deltaTime = now - startTime; //using velocity
     
-    CGPoint startPoint = CGPointFromString([guesturePoints objectAtIndex:0]);
-    CGFloat lineLength = distanceBetweenPoints(startPoint, finishedPoint);
+    IBroGestureArgs *args = [IBroGestureArgs gestureArgsWithStartPoint:finishedPoint 
+                                                          withEndPoint:finishedPoint
+                                                               andType:IBroGestureTypeTap 
+                                                          andDeltaTime:deltaTime];
     
-//    NSLog(@"IBroGesture->-----------------------");
-//    NSLog(@"IBroGesture->up delta time:%f", now - lastTime);
-//    NSLog(@"IBroGesture->points count: %d", [guesturePoints count]);
-//    NSLog(@"IBroGesture->distance between start point and end point:%f", lineLength);
+    if( [guesturePoints count] >1 && deltaTime <= kMinDeltaTime) {
+
     
-    
-    if(lineLength > kMinPointsLength) {
-        CGLine lastLine = CGMakeLine(startPoint, finishedPoint);
-        BOOL isLine = NO;
-        int notLineCount = 0;
+        CGPoint startPoint = CGPointFromString([guesturePoints objectAtIndex:0]);
+        CGFloat lineLength = distanceBetweenPoints(startPoint, finishedPoint);
         
-        for (int i=1; i<[guesturePoints count]; i+=1) {
-            CGPoint current = CGPointFromString([guesturePoints objectAtIndex:i]);
-            if( startPoint.x == current.x && startPoint.y == current.y ){
-                continue;
-            }
-            CGLine line = CGMakeLine(startPoint, current);
-            CGFloat angle = angleBetweenLines(lastLine, line);
-            //NSLog(@"IBroGesture->angle%d:%f", i, angle);
-            if( angle  > kMinAngle ){ //line gesture
-                ++notLineCount;
-            }
-        }
-        if( notLineCount > [guesturePoints count]/2 ){
-            isLine = NO;
-        } else {
-            isLine = YES;
-        }
+//        NSLog(@"IBroGesture->-----------------------");
+//        NSLog(@"IBroGesture->up delta time:%f", now - lastTime);
+//        NSLog(@"IBroGesture->points count: %d", [guesturePoints count]);
+//        NSLog(@"IBroGesture->distance between start point and end point:%f", lineLength);
         
-        if( isLine ){
+        if(lineLength > kMinPointsLength) {
+            CGLine lastLine = CGMakeLine(startPoint, finishedPoint);
+            BOOL isLine = NO;
+            int notLineCount = 0;
             
-            NSTimeInterval deltaTime = now - startTime; //using velocity
-            if( [self.delegate conformsToProtocol:@protocol(IBroGestureDelegate)] 
-               && [self.delegate respondsToSelector:@selector(gestureDetected:)] ){
-                [self.delegate performSelector:@selector(gestureDetected:)
-                                    withObject:[IBroGestureArgs gestureArgsWithStartPoint:startPoint 
-                                                                  withEndPoint:finishedPoint
-                                                                       andType:IBroGestureTypeLine 
-                                                                  andDeltaTime:deltaTime]];
+            for (int i=1; i<[guesturePoints count]; i+=1) {
+                CGPoint current = CGPointFromString([guesturePoints objectAtIndex:i]);
+                if( startPoint.x == current.x && startPoint.y == current.y ){
+                    continue;
+                }
+                CGLine line = CGMakeLine(startPoint, current);
+                CGFloat angle = angleBetweenLines(lastLine, line);
+                //NSLog(@"IBroGesture->angle%d:%f", i, angle);
+                if( angle  > kMinAngle ){ //line gesture
+                    ++notLineCount;
+                }
             }
+            if( notLineCount > [guesturePoints count]/2 ){
+                isLine = NO;
+            } else {
+                isLine = YES;
+            }
+            
+            if( isLine ){
+                
+                [args setStartPoint:startPoint];
+                [args setEndPoint:finishedPoint];
+                [args setGestureType:IBroGestureTypeLine];
+               
+            }
+            
         }
-        
     }
     [self restoreDefault];
+    
+    if( [self.delegate conformsToProtocol:@protocol(IBroGestureDelegate)] 
+       && [self.delegate respondsToSelector:@selector(gestureDetected:)] ){
+        [self.delegate performSelector:@selector(gestureDetected:)
+                            withObject:args];
+    }
 }
 
 

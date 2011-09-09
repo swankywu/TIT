@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GameCharacter.h"
-#define kTapFadeOutDuration 0.5f
+#define kGestureLineAnimationDuration 0.5f
+#define kGestureTapAnimationDuration 0.2f
 
 @interface TapTouchItem : GameCharacter {
     

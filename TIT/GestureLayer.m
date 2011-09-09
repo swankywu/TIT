@@ -8,6 +8,8 @@
 
 #import "GestureLayer.h"
 #define kZTapTouchItemNode 100
+#define kDeltaLength 150
+
 
 @implementation GestureLayer
 @synthesize batchNode;
@@ -83,8 +85,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint pos = [touch locationInView:touch.view];
     pos = [[CCDirector sharedDirector] convertToGL:pos];
-    //change state
-    [tapTouchItem changeState:GameCharacterStateTapEnd];
+    
     //guesture
     [gesture decideGestureByLastPoint:pos];
 
@@ -92,32 +93,45 @@
 
 #pragma mark - gesture delegate
 - (void)gestureDetected:(IBroGestureArgs*)gestureArgs{
-#define kDeltaLength 150
-    
-    CGPoint startPoint = gestureArgs.startPoint;
-    CGPoint endPoint = gestureArgs.endPoint;
-    
-    CGFloat offX = endPoint.x - startPoint.x;
-    CGFloat offY = endPoint.y - startPoint.y;
-    CGFloat radio = fabsf(offY/offX);
-    
-    CGFloat deltaX = sqrtf(kDeltaLength*kDeltaLength/(radio*radio+1));
-    CGFloat deltaY = sqrtf(kDeltaLength*kDeltaLength/(1/radio*radio+1));
-    CGFloat realX, realY;
-    if( offX > 0){
-        realX = endPoint.x + deltaX;
-    } else {
-        realX = endPoint.x - deltaX;
-    }
-    
-    if( offY> 0){
-        realY = endPoint.y + deltaY;
-    } else{
-        realY = endPoint.y - deltaY;
-    }
-    NSLog(@"GestureLayer -> start point(%f,%f), line end point(%f, %f), delta(%f,%f)", endPoint.x, endPoint.y, realX,realY, deltaX, deltaY);
 
-    [self.tapTouchItem runAction:[CCMoveTo actionWithDuration:kTapFadeOutDuration position:ccp(realX,realY)]];
+    if( gestureArgs.gestureType == IBroGestureTypeTap ){
+        [tapTouchItem changeState:GameCharacterStateTapEnd];
+    } else if( gestureArgs.gestureType == IBroGestureTypeLine ){
+        [tapTouchItem changeState:GameCharacterStateTapFinishing];    
+        CGPoint startPoint = gestureArgs.startPoint;
+        CGPoint endPoint = gestureArgs.endPoint;
+        
+        CGFloat offX = endPoint.x - startPoint.x;
+        CGFloat offY = endPoint.y - startPoint.y;
+        CGFloat radioX = offX!=0.0f ? fabsf((float)offY/offX) : 0.0f;
+        CGFloat radioY = offY!=0.0f ? fabsf((float)offX/offY) : 0.0f;
+        
+        CGFloat deltaX = sqrtf(kDeltaLength*kDeltaLength/(radioX*radioX+1));
+        CGFloat deltaY = sqrtf(kDeltaLength*kDeltaLength/(radioY*radioY+1));
+        CGFloat realX, realY;
+        if( offX > 0){
+            realX = endPoint.x + deltaX;
+        } else if( offX < 0) {
+            realX = endPoint.x - deltaX;
+        } else {
+            realX = endPoint.x;
+        }
+        
+        if( offY> 0){
+            realY = endPoint.y + deltaY;
+        } else if (offX < 0){
+            realY = endPoint.y - deltaY;
+        } else {
+            realY = endPoint.y;
+        }
+        NSLog(@"GestureLayer -> line gesture detected.");
+//        NSLog(@"GestureLayer -> start point(%f,%f), end point(%f, %f), target point (%f,%f), detal(%f,%f), offset(%f,%f), radio(%f,%f)", 
+//              startPoint.x, startPoint.y, endPoint.x, endPoint.y, realX, realY, deltaX, deltaY, offX, offY, radioX, radioY);
+        
+        [self.tapTouchItem runAction:[CCMoveTo actionWithDuration:kGestureLineAnimationDuration
+                                                         position:ccp(realX,realY)]];
+    }
+    
 }
 
 

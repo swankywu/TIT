@@ -21,6 +21,7 @@
 		C62EFA2D14186A3700D2CF1E /* GestureLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62EFA2C14186A3700D2CF1E /* GestureLayer.m */; };
 		C62EFA3014186B7D00D2CF1E /* ChorusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */; };
 		C62EFA34141882B100D2CF1E /* TutorialSong.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62EFA33141882B100D2CF1E /* TutorialSong.plist */; };
+		C633A5051419C34200A3AFDD /* sc.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C633A5041419C34200A3AFDD /* sc.mp3 */; };
 		C644DABA14146E3300DEC79F /* TapTouchItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = C644DAB914146E3300DEC79F /* TapTouchItem.plist */; };
 		C644DABE1414C2F600DEC79F /* sing_low.aiff in Resources */ = {isa = PBXBuildFile; fileRef = C644DABD1414C2F600DEC79F /* sing_low.aiff */; };
 		C644DACE1415D74100DEC79F /* IBroGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C644DACD1415D74000DEC79F /* IBroGesture.m */; };
@@ -172,6 +173,7 @@
 		C62EFA2E14186B7C00D2CF1E /* ChorusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChorusLayer.h; sourceTree = "<group>"; };
 		C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusLayer.m; sourceTree = "<group>"; };
 		C62EFA33141882B100D2CF1E /* TutorialSong.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialSong.plist; sourceTree = "<group>"; };
+		C633A5041419C34200A3AFDD /* sc.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sc.mp3; sourceTree = "<group>"; };
 		C644DAB914146E3300DEC79F /* TapTouchItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapTouchItem.plist; sourceTree = "<group>"; };
 		C644DABD1414C2F600DEC79F /* sing_low.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = sing_low.aiff; sourceTree = "<group>"; };
 		C644DACC1415D74000DEC79F /* IBroGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBroGesture.h; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 		C644DABC1414C27400DEC79F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				C633A5041419C34200A3AFDD /* sc.mp3 */,
 				C644DABD1414C2F600DEC79F /* sing_low.aiff */,
 			);
 			name = Audio;
@@ -990,6 +993,7 @@
 				C644DABA14146E3300DEC79F /* TapTouchItem.plist in Resources */,
 				C644DABE1414C2F600DEC79F /* sing_low.aiff in Resources */,
 				C62EFA34141882B100D2CF1E /* TutorialSong.plist in Resources */,
+				C633A5051419C34200A3AFDD /* sc.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

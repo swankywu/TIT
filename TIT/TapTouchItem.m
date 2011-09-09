@@ -45,12 +45,15 @@
 
 #pragma mark - 
 - (void)changeState:(GameCharacterState)newState{
+
     [self stopAllActions];
     [self setState:newState];
     id anim = [self.animDic objectForKey:[NSString stringWithFormat:@"%d", newState]];
     id action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
-    if( newState == GameCharacterStateTapEnd || newState == GameCharacterStateTapFinishing ){
-        action = [CCSpawn actions:action,[CCFadeOut actionWithDuration:kTapFadeOutDuration],[CCScaleTo actionWithDuration:kTapFadeOutDuration scale:0], nil];
+    if( newState == GameCharacterStateTapEnd  ){
+        action = [CCSpawn actions:action,[CCFadeOut actionWithDuration:kGestureTapAnimationDuration],[CCScaleTo actionWithDuration:kGestureTapAnimationDuration scale:0], nil];
+    } else if( newState == GameCharacterStateTapFinishing ){
+        action = [CCSpawn actions:action,[CCFadeOut actionWithDuration:kGestureLineAnimationDuration],[CCScaleTo actionWithDuration:kGestureLineAnimationDuration scale:0], nil];
     } else if( newState == GameCharacterStateTapStart ){
         action = [CCSpawn actions:action,[CCFadeIn actionWithDuration:0.1f], [CCScaleTo actionWithDuration:0.1f scale:1], nil];
     }

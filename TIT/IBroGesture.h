@@ -10,6 +10,7 @@
 
 typedef enum{
     IBroGestureTypeUnkown = 0,
+    IBroGestureTypeTap,
     IBroGestureTypeLine,
     
 } IBroGestureType;
