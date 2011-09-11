@@ -6,7 +6,6 @@
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
-#import "SimpleAudioEngine.h"
 #import "ChorusScene.h"
 
 
@@ -29,7 +28,6 @@
         [self addChild:bgLayer z:0];
         self.gameLayer = [ChorusLayer node];
         [self addChild:gameLayer z:1];
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"sc.mp3" loop:YES];
     }
     return self;
 }

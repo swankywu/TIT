@@ -6,6 +6,7 @@
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
+#import "GameManager.h"
 #import "GameObject.h"
 
 
@@ -45,14 +46,9 @@
                                  andClassName:(NSString*)className{
     
     CCAnimation *animationToReturn = nil;
-    NSString *fullFileName = [NSString stringWithFormat:@"%@.plist",className];
-    NSString *plistPath;
-    // 1: Get the Path to the plist file
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [rootPath stringByAppendingPathComponent:fullFileName];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-        plistPath = [[NSBundle mainBundle] pathForResource:className ofType:@"plist"];
-    }
+     // 1: Get the Path to the plist file
+    NSString *plistPath = [GameManager resourceFullPath:className ofType:@"plist"];
+   
     // 2: Read in the plist file
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     
@@ -81,6 +77,7 @@
         NSString *frameName = [NSString stringWithFormat:@"%@%@.png", animationFramePrefix,frameNumber];
         [animationToReturn addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
+    [animationToReturn setName:animationName];
     return animationToReturn;
 }
 

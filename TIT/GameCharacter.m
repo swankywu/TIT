@@ -30,6 +30,20 @@
     CCLOG(@"GameObject->changeState method should be overridden");
 }
 
+- (void)changeStateByNumber:(NSNumber*)newState{
+    [self changeState:[newState intValue]];
+}
+
+- (void)changeStateByAnimationName:(NSString*)animationName{
+    for(id ani in animDic){
+        if( [[animDic objectForKey:ani] name] == animationName ){
+            [self changeState:[ani intValue]];
+            break;
+        }
+    }
+}
+
+
 -(void)checkAndClampSpritePosition{
     CGPoint currentSpritePosition = [self position];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {

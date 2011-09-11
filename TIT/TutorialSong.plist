@@ -2,19 +2,29 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>fileName</key>
-	<string></string>
+	<key>bgMusic</key>
+	<string>sc</string>
+	<key>bgMusicType</key>
+	<string>mp3</string>
 	<key>queue</key>
 	<array>
 		<dict>
 			<key>startedTime</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>duration</key>
-			<integer>0</integer>
-			<key>actionType</key>
-			<integer>0</integer>
+			<integer>2</integer>
+			<key>changeState</key>
+			<string>GameCharacterStateSingLow0</string>
+			<key>changeStateNum</key>
+			<integer>3</integer>
+			<key>changeAnimationName</key>
+			<string>GameCharacterStateSingLow0</string>
+			<key>sound</key>
+			<string>a0</string>
 			<key>singerIndex</key>
 			<integer>0</integer>
+			<key>singer</key>
+			<string>singer0</string>
 		</dict>
 	</array>
 </dict>

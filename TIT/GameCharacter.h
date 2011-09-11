@@ -20,8 +20,12 @@
 @property (nonatomic, retain) NSMutableDictionary *animDic;
 @property (readwrite) GameCharacterState state;
 
+
 - (void)changeState:(GameCharacterState)newState;
--(void)checkAndClampSpritePosition;
+- (void)changeStateByNumber:(NSNumber*)newState;
+- (void)changeStateByAnimationName:(NSString*)animationName;
+
+- (void)checkAndClampSpritePosition;
 - (CCAnimation*)loadPlistForAnimationWithName:(NSString*)animationName
                                  andClassName:(NSString*)className
                        withGameCharacterState:(GameCharacterState)theState;

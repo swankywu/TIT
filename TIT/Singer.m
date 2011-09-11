@@ -26,6 +26,12 @@
     [self loadPlistForAnimationWithName:@"singLowAnim"
                            andClassName:kClassName
                  withGameCharacterState:GameCharacterStateSingLow];
+    [self loadPlistForAnimationWithName:@"singLowAnim"
+                           andClassName:kClassName
+                 withGameCharacterState:GameCharacterStateSingLow0];
+    [self loadPlistForAnimationWithName:@"singLowAnim"
+                           andClassName:kClassName
+                 withGameCharacterState:GameCharacterStateSingLow1];
     [self loadPlistForAnimationWithName:@"singHighAnim"
                            andClassName:kClassName
                  withGameCharacterState:GameCharacterStateSingHigh];
@@ -67,9 +73,9 @@
     id action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
 
     if( !soundSource){
-        soundSource = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"sing_low.aiff"];
+        soundSource = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"a2.aiff"];
         [soundSource setPitch:1.0f];
-        [soundSource setPan:5.0f];
+        [soundSource setPan:1.0f];
         [soundSource setGain:1.0f];
         [soundSource setLooping:YES];
         [soundSource retain];
@@ -89,10 +95,14 @@
         }
         action = [CCRepeatForever actionWithAction:action];
     } else if(newState == GameCharacterStateSingHigh){
-        
-        soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"sing_low.aiff" pitch:1.0f pan:1.0f gain:1.0f];
-    }
-        
+        soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"a3.aiff" pitch:1.0f pan:1.0f gain:1.0f];
+    } else if( newState == GameCharacterStateSingLow0 ){
+        soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"a0.aiff" pitch:1.0f pan:1.0f gain:1.0f];
+         action = [CCRepeatForever actionWithAction:action];
+    } else if( newState == GameCharacterStateSingLow1 ){
+        soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"a1.aiff" pitch:1.0f pan:1.0f gain:1.0f];
+         action = [CCRepeatForever actionWithAction:action];
+    }     
     [self runAction:action];
 }
 

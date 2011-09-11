@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AtlasColumns</key>
+	<integer>90</integer>
+	<key>AtlasFile</key>
+	<string>v5f.png</string>
+	<key>AtlasStartChar</key>
+	<integer>48</integer>
+	<key>GlyphAdvanceValues</key>
+	<array>
+		<real>21.552000045776367</real>
+		<real>11.760000228881836</real>
+		<real>19.104000091552734</real>
+		<real>19.104000091552734</real>
+		<real>19.104000091552734</real>
+		<real>19.104000091552734</real>
+		<real>19.104000091552734</real>
+		<real>16.656000137329102</real>
+		<real>19.104000091552734</real>
+		<real>19.104000091552734</real>
+		<real>6.8640003204345703</real>
+	</array>
+	<key>GlyphHeight</key>
+	<integer>30</integer>
+	<key>GlyphWidth</key>
+	<integer>22</integer>
+</dict>
+</plist>
