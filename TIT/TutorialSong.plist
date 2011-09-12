@@ -26,6 +26,60 @@
 			<key>singer</key>
 			<string>singer0</string>
 		</dict>
+		<dict>
+			<key>startedTime</key>
+			<integer>5</integer>
+			<key>duration</key>
+			<integer>2</integer>
+			<key>changeState</key>
+			<string>GameCharacterStateSingLow1</string>
+			<key>changeStateNum</key>
+			<integer>4</integer>
+			<key>changeAnimationName</key>
+			<string>GameCharacterStateSingLow1</string>
+			<key>sound</key>
+			<string>a1</string>
+			<key>singerIndex</key>
+			<integer>1</integer>
+			<key>singer</key>
+			<string>singer1</string>
+		</dict>
+		<dict>
+			<key>startedTime</key>
+			<integer>10</integer>
+			<key>duration</key>
+			<integer>2</integer>
+			<key>changeState</key>
+			<string>GameCharacterStateSingLow0</string>
+			<key>changeStateNum</key>
+			<integer>5</integer>
+			<key>changeAnimationName</key>
+			<string>GameCharacterStateSingLow0</string>
+			<key>sound</key>
+			<string>a0</string>
+			<key>singerIndex</key>
+			<integer>0</integer>
+			<key>singer</key>
+			<string>singer0</string>
+		</dict>
+		<dict>
+			<key>startedTime</key>
+			<integer>10</integer>
+			<key>duration</key>
+			<integer>2</integer>
+			<key>changeState</key>
+			<string>GameCharacterStateSingLow1</string>
+			<key>changeStateNum</key>
+			<integer>5</integer>
+			<key>changeAnimationName</key>
+			<string>GameCharacterStateSingLow1</string>
+			<key>sound</key>
+			<string>a1</string>
+			<key>singerIndex</key>
+			<integer>1</integer>
+			<key>singer</key>
+			<string>singer1</string>
+		</dict>
 	</array>
 </dict>
 </plist>
