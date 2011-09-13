@@ -170,7 +170,11 @@ static GameManager *_singletonSharedGameManager = nil;
         [soundEngine playBackgroundMusic:trackFileName loop:YES];
     }
 }
--(void)stopSoundEffect:(ALuint)soundEffectID {
+
+- (void)stopSoundEffectByNumber:(NSNumber*)soundId{
+    [self stopSoundEffect:[soundId intValue]];
+}
+- (void)stopSoundEffect:(ALuint)soundEffectID {
     if (managerSoundState == kAudioManagerReady) {
         [soundEngine stopEffect:soundEffectID];
     }

@@ -13,6 +13,7 @@
 
 @interface Singer : GameCharacter {
     CDSoundSource *soundSource;
+    int soundPlayId;
 }
 
 

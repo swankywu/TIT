@@ -17,7 +17,10 @@
     ChorusSinger *player;
     NSArray *otherChorusSingers;
     CCLabelBMFont *songProgressLabel;
-    NSMutableArray *chorusTemplateArray;
+    NSMutableArray *singersScrpitQueue;
+    NSMutableArray *playerScriptQueue;
+    NSMutableArray *soundScriptQueue;
+    int points;
 }
 
 @property (nonatomic, retain) ChorusSinger *player;
@@ -25,7 +28,9 @@
 @property (nonatomic, retain) ChorusSinger *singer1;
 @property (nonatomic, retain) NSArray *otherChorusSingers;
 @property (nonatomic, retain) CCLabelBMFont *songProgressLabel;
-@property (nonatomic, retain) NSMutableArray *chorusTemplateArray;
+@property (nonatomic, retain) NSMutableArray *singersScrpitQueue;
+@property (nonatomic, retain) NSMutableArray *playerScriptQueue;
+@property (nonatomic, retain) NSMutableArray *soundScriptQueue;
 
 
 - (void)loadSongScriptByName:(NSString*)scriptName;

@@ -6,41 +6,29 @@
 	<string>sc</string>
 	<key>bgMusicType</key>
 	<string>mp3</string>
-	<key>queue</key>
+	<key>singersScrpitQueue</key>
 	<array>
 		<dict>
 			<key>startedTime</key>
 			<integer>2</integer>
 			<key>duration</key>
-			<integer>2</integer>
+			<real>0.5</real>
 			<key>changeState</key>
 			<string>GameCharacterStateSingLow0</string>
 			<key>changeStateNum</key>
 			<integer>3</integer>
-			<key>changeAnimationName</key>
-			<string>GameCharacterStateSingLow0</string>
-			<key>sound</key>
-			<string>a0</string>
-			<key>singerIndex</key>
-			<integer>0</integer>
 			<key>singer</key>
 			<string>singer0</string>
 		</dict>
 		<dict>
 			<key>startedTime</key>
-			<integer>5</integer>
+			<integer>3</integer>
 			<key>duration</key>
-			<integer>2</integer>
+			<real>0.5</real>
 			<key>changeState</key>
 			<string>GameCharacterStateSingLow1</string>
 			<key>changeStateNum</key>
 			<integer>4</integer>
-			<key>changeAnimationName</key>
-			<string>GameCharacterStateSingLow1</string>
-			<key>sound</key>
-			<string>a1</string>
-			<key>singerIndex</key>
-			<integer>1</integer>
 			<key>singer</key>
 			<string>singer1</string>
 		</dict>
@@ -48,17 +36,11 @@
 			<key>startedTime</key>
 			<integer>10</integer>
 			<key>duration</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>changeState</key>
-			<string>GameCharacterStateSingLow0</string>
+			<string>GameCharacterStateSingHigh</string>
 			<key>changeStateNum</key>
 			<integer>5</integer>
-			<key>changeAnimationName</key>
-			<string>GameCharacterStateSingLow0</string>
-			<key>sound</key>
-			<string>a0</string>
-			<key>singerIndex</key>
-			<integer>0</integer>
 			<key>singer</key>
 			<string>singer0</string>
 		</dict>
@@ -66,19 +48,41 @@
 			<key>startedTime</key>
 			<integer>10</integer>
 			<key>duration</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>changeState</key>
-			<string>GameCharacterStateSingLow1</string>
+			<string>GameCharacterStateSingHigh</string>
 			<key>changeStateNum</key>
 			<integer>5</integer>
-			<key>changeAnimationName</key>
-			<string>GameCharacterStateSingLow1</string>
-			<key>sound</key>
-			<string>a1</string>
-			<key>singerIndex</key>
-			<integer>1</integer>
 			<key>singer</key>
 			<string>singer1</string>
+		</dict>
+	</array>
+	<key>playerScriptQueue</key>
+	<array>
+		<dict>
+			<key>point</key>
+			<integer>10</integer>
+			<key>residual</key>
+			<real>0.1</real>
+			<key>startedTime</key>
+			<integer>3</integer>
+			<key>duration</key>
+			<real>0.5</real>
+			<key>changeState</key>
+			<string>GameCharacterStateSingLow</string>
+			<key>changeStateNum</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>soundScriptQueue</key>
+	<array>
+		<dict>
+			<key>startedTime</key>
+			<integer>9</integer>
+			<key>duration</key>
+			<real>0.1</real>
+			<key>fileName</key>
+			<string>a3.aiff</string>
 		</dict>
 	</array>
 </dict>

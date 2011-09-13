@@ -44,7 +44,7 @@
 - (id) init{
     if( self = [super init] ){
         soundSource = nil;
-        //self.contentSize = CGSizeMake(86.0f, 144.0f);
+        soundPlayId = -1;
         self.type = GameObjectTypeSinger;
         [self initAnimations];
         [self changeState:GameCharacterStateIdle];
@@ -56,7 +56,6 @@
 
 - (void)changeState:(GameCharacterState)newState{
 
-    static int soundPlayId = -1;
     
     if( newState == self.state) return;
     if( self.state == GameCharacterStateSingHigh && [self numberOfRunningActions] > 0){
@@ -67,7 +66,10 @@
     
     [self stopAllActions];
     [self setState:newState];
-
+    if( soundPlayId > -1 ){
+        [[SimpleAudioEngine sharedEngine] stopEffect:soundPlayId];
+        soundPlayId = -1;
+    }
     
     id anim = [self.animDic objectForKey:[NSString stringWithFormat:@"%d", newState]];
     id action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
@@ -82,11 +84,6 @@
     }
     
     if( newState == GameCharacterStateIdle || newState == GameCharacterStateSingLow ){
-        if( soundPlayId > -1 ){
-            [[SimpleAudioEngine sharedEngine] stopEffect:soundPlayId];
-            soundPlayId = -1;
-        }
-        
         if( newState == GameCharacterStateIdle ){
             if( [soundSource isPlaying] )
                 [soundSource stop];
