@@ -21,7 +21,6 @@
 		C62EFA2D14186A3700D2CF1E /* GestureLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62EFA2C14186A3700D2CF1E /* GestureLayer.m */; };
 		C62EFA3014186B7D00D2CF1E /* ChorusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */; };
 		C62EFA34141882B100D2CF1E /* TutorialSong.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62EFA33141882B100D2CF1E /* TutorialSong.plist */; };
-		C633A5051419C34200A3AFDD /* sc.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C633A5041419C34200A3AFDD /* sc.mp3 */; };
 		C644DABA14146E3300DEC79F /* TapTouchItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = C644DAB914146E3300DEC79F /* TapTouchItem.plist */; };
 		C644DACE1415D74100DEC79F /* IBroGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C644DACD1415D74000DEC79F /* IBroGesture.m */; };
 		C655A30A141B7B74004D016E /* bogey12.fnt in Resources */ = {isa = PBXBuildFile; fileRef = C655A308141B7B74004D016E /* bogey12.fnt */; };
@@ -31,6 +30,7 @@
 		C655A323141B91B3004D016E /* v5f.plist in Resources */ = {isa = PBXBuildFile; fileRef = C655A321141B91B2004D016E /* v5f.plist */; };
 		C655A324141B91B3004D016E /* v5f.png in Resources */ = {isa = PBXBuildFile; fileRef = C655A322141B91B2004D016E /* v5f.png */; };
 		C6715D14140E3EF9001A0EA6 /* SplashScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C6715D13140E3EF9001A0EA6 /* SplashScene.m */; };
+		C69795901420A858008D5494 /* tutorial.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C697958F1420A858008D5494 /* tutorial.m4a */; };
 		C6A58248140F899900637E29 /* common_atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6A58246140F899900637E29 /* common_atlas.plist */; };
 		C6A58249140F899900637E29 /* common_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = C6A58247140F899900637E29 /* common_atlas.png */; };
 		C6C2DF70140E373200270E60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2DF6F140E373200270E60 /* QuartzCore.framework */; };
@@ -183,7 +183,6 @@
 		C62EFA2E14186B7C00D2CF1E /* ChorusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChorusLayer.h; sourceTree = "<group>"; };
 		C62EFA2F14186B7C00D2CF1E /* ChorusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChorusLayer.m; sourceTree = "<group>"; };
 		C62EFA33141882B100D2CF1E /* TutorialSong.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TutorialSong.plist; sourceTree = "<group>"; };
-		C633A5041419C34200A3AFDD /* sc.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sc.mp3; sourceTree = "<group>"; };
 		C644DAB914146E3300DEC79F /* TapTouchItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapTouchItem.plist; sourceTree = "<group>"; };
 		C644DACC1415D74000DEC79F /* IBroGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBroGesture.h; sourceTree = "<group>"; };
 		C644DACD1415D74000DEC79F /* IBroGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBroGesture.m; sourceTree = "<group>"; };
@@ -195,6 +194,7 @@
 		C655A322141B91B2004D016E /* v5f.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = v5f.png; sourceTree = "<group>"; };
 		C6715D12140E3EF9001A0EA6 /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SplashScene.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C6715D13140E3EF9001A0EA6 /* SplashScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SplashScene.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C697958F1420A858008D5494 /* tutorial.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.m4a; sourceTree = "<group>"; };
 		C6A58236140F791000637E29 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		C6A58246140F899900637E29 /* common_atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = common_atlas.plist; sourceTree = "<group>"; };
 		C6A58247140F899900637E29 /* common_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_atlas.png; sourceTree = "<group>"; };
@@ -494,7 +494,7 @@
 		C644DABC1414C27400DEC79F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				C633A5041419C34200A3AFDD /* sc.mp3 */,
+				C697958F1420A858008D5494 /* tutorial.m4a */,
 				C6F3A4AD141BC714007AEEC1 /* a0.aiff */,
 				C6F3A4AE141BC714007AEEC1 /* a1.aiff */,
 				C6F3A4AF141BC714007AEEC1 /* a2.aiff */,
@@ -1040,7 +1040,6 @@
 				C60665011410B22900E8E125 /* Singer.plist in Resources */,
 				C644DABA14146E3300DEC79F /* TapTouchItem.plist in Resources */,
 				C62EFA34141882B100D2CF1E /* TutorialSong.plist in Resources */,
-				C633A5051419C34200A3AFDD /* sc.mp3 in Resources */,
 				C655A30A141B7B74004D016E /* bogey12.fnt in Resources */,
 				C655A30B141B7B74004D016E /* bogey12.png in Resources */,
 				C655A30E141B7F4A004D016E /* impact64.fnt in Resources */,
@@ -1051,6 +1050,7 @@
 				C6F3A4B2141BC714007AEEC1 /* a1.aiff in Resources */,
 				C6F3A4B3141BC714007AEEC1 /* a2.aiff in Resources */,
 				C6F3A4B4141BC714007AEEC1 /* a3.aiff in Resources */,
+				C69795901420A858008D5494 /* tutorial.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1230,7 +1230,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Tap In Tune";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1247,7 +1247,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Tap In Tune";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

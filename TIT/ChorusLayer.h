@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "GestureLayer.h"
 #import "ChorusSinger.h"
+#import "ChorusConductor.h"
 
 @interface ChorusLayer : GestureLayer {
     ChorusSinger *singer0;
@@ -17,10 +18,15 @@
     ChorusSinger *player;
     NSArray *otherChorusSingers;
     CCLabelBMFont *songProgressLabel;
+    
     NSMutableArray *singersScrpitQueue;
     NSMutableArray *playerScriptQueue;
     NSMutableArray *soundScriptQueue;
-    int points;
+    
+    int gameHighPoints;
+    int playerPoints;
+    int timeGainPoints;
+    int timeCutDownPoints;
 }
 
 @property (nonatomic, retain) ChorusSinger *player;

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>bgMusic</key>
-	<string>sc</string>
+	<string>tutorial</string>
 	<key>bgMusicType</key>
-	<string>mp3</string>
+	<string>m4a</string>
 	<key>singersScrpitQueue</key>
 	<array>
 		<dict>
@@ -65,7 +65,7 @@
 			<key>residual</key>
 			<real>0.1</real>
 			<key>startedTime</key>
-			<integer>3</integer>
+			<integer>4</integer>
 			<key>duration</key>
 			<real>0.5</real>
 			<key>changeState</key>

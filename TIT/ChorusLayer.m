@@ -16,6 +16,8 @@
 #define kSingerBoundX (70/2)
 #define kSingerBoundY (112/2)
 
+#define kMinStartSeconds 3.0f
+
 @implementation ChorusLayer
 @synthesize player, singer0, singer1;
 @synthesize otherChorusSingers;
@@ -40,6 +42,7 @@
 - (id)init{
     if(self = [super init] ){
         
+        //singers and player
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         
         for (int i=1; i<4; ++i) {
@@ -58,10 +61,20 @@
         self.singer1 = [arr objectAtIndex:0];
         [arr release];
         
-        //player
-        points = 100;
+        //chorus conductor
         
-        //template
+        ChorusConductor *conductor = [ChorusConductor spriteWithSpriteFrameName:@"conductor0.png"];
+        
+        conductor.position = ccp(80,180);
+        [self.batchNode addChild:conductor];
+        
+        //points set
+        gameHighPoints = 0;
+        playerPoints = 0;
+        timeGainPoints = 0;
+        timeCutDownPoints = 0;
+        
+        //songs template
         [self loadSongScriptByName:@"TutorialSong"];
        
         
@@ -108,28 +121,48 @@
 - (void)synicPlayerScript{
     AVAudioPlayer *avPlayer = [GameManager sharedGameManager].avPlayer;
     NSDictionary *peekData = [playerScriptQueue peek];
+    BOOL hasTemplateTouch = NO;
     if( peekData ){
         NSTimeInterval startedTime = [[peekData objectForKey:@"startedTime"] floatValue];
         NSTimeInterval residual = [[peekData objectForKey:@"residual"] floatValue];
         NSTimeInterval duration = [[peekData objectForKey:@"duration"] floatValue];
         if(avPlayer.currentTime > startedTime - residual && avPlayer.currentTime < startedTime + duration + residual){
-
-            id point = [peekData objectForKey:@"point"];
+            hasTemplateTouch = YES;
+            
             int changeState = [[peekData objectForKey:@"changeStateNum"] intValue];
             if( changeState == player.state ){
-                points ++;
+                timeGainPoints ++;
             } else {
-                points --;
+                timeCutDownPoints ++;
             }
-            
-            NSLog(@"ChorusLayer -> player's points:%d", points);
+
         } else if( avPlayer.currentTime > startedTime + duration + residual){
-           [playerScriptQueue dequeue];  //remove it
-        } else {
+            hasTemplateTouch = YES;
+            int basePoint = [[peekData objectForKey:@"point"] intValue];
+            int playerGainPoints =  (float)timeGainPoints /(timeGainPoints + timeCutDownPoints) * basePoint;
+            gameHighPoints += basePoint;
+            playerPoints += playerGainPoints;
             
+            NSLog(@"ChorusLayer -> player's time gain points:%d and time cut down points:%d curent gain points:%d, gameHighPoints:%d, player points:%d",timeGainPoints, timeCutDownPoints, playerGainPoints, gameHighPoints, playerPoints);
+        
+            timeGainPoints = 0;
+            timeCutDownPoints = 0;
+            [playerScriptQueue dequeue];  //remove it
+        }
+    } 
+    if( !hasTemplateTouch && avPlayer.currentTime > kMinStartSeconds){
+        if( player.state != GameCharacterStateIdle ){
+            playerPoints--;
+            for (id singer in otherChorusSingers) {
+                if( [singer state] == GameCharacterStateIdle ){
+                    [singer changeState:GameCharacterStateSingStare];
+                    [singer performSelector:@selector(changeStateByNumber:)
+                                 withObject:[NSNumber numberWithInt:GameCharacterStateIdle] 
+                                 afterDelay:5.0f];
+                }
+            }
         }
     }
-    
 }
 
 - (void)synicSoundScript{
@@ -154,7 +187,7 @@
 
 - (void)updateSongTemplate{
     AVAudioPlayer *avPlayer = [GameManager sharedGameManager].avPlayer;
-    if( avPlayer != nil){
+    if( avPlayer != nil && avPlayer.playing){
         NSString *songProgress =  [NSString stringWithFormat:@"%d:%02d.%d", (int)avPlayer.currentTime / 60, (int)avPlayer.currentTime % 60, (int)(avPlayer.currentTime*10) % 10, nil];
         [self.songProgressLabel setString:songProgress];
 
@@ -165,6 +198,9 @@
         
         //sound script
         [self synicSoundScript];
+    } else { //game over display points
+        NSLog(@"ChorusLayer -> Game over: Player's points:%d and all points:%d", playerPoints, gameHighPoints);
+        //TODO change scence here
     }
 
 }

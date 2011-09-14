@@ -32,11 +32,11 @@
 	<key>singStareAnim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.1</real>
+		<real>0.2</real>
 		<key>filenamePrefix</key>
-		<string>singer</string>
+		<string>singer_stare</string>
 		<key>animationFrames</key>
-		<string>0,1,2,3,4</string>
+		<string>0,1,2</string>
 	</dict>
 </dict>
 </plist>

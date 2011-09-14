@@ -90,16 +90,16 @@
         } else if(newState == GameCharacterStateSingLow){
             [soundSource play];
         }
-        action = [CCRepeatForever actionWithAction:action];
     } else if(newState == GameCharacterStateSingHigh){
         soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"a3.aiff" pitch:1.0f pan:1.0f gain:1.0f];
     } else if( newState == GameCharacterStateSingLow0 ){
         soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"a0.aiff" pitch:1.0f pan:1.0f gain:1.0f];
-         action = [CCRepeatForever actionWithAction:action];
     } else if( newState == GameCharacterStateSingLow1 ){
         soundPlayId = [[SimpleAudioEngine sharedEngine] playEffect:@"a1.aiff" pitch:1.0f pan:1.0f gain:1.0f];
-         action = [CCRepeatForever actionWithAction:action];
     }     
+    if( newState != GameCharacterStateSingHigh ){
+                 action = [CCRepeatForever actionWithAction:action];
+    }
     [self runAction:action];
 }
 
