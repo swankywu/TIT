@@ -6,17 +6,25 @@
 //  Copyright 2011 iBrother. All rights reserved.
 //
 
+#import "CCNode.h"
 #import "NSMutableArrayQueueExtend.h"
 #import "GameManager.h"
 #import "ChorusLayer.h"
 
-#define kSingerIntervalWidth 35
-#define kSingerIntervalHeight 20
-#define kSingerMarginBottom 200
-#define kSingerBoundX (70/2)
-#define kSingerBoundY (112/2)
 
+#define kSingerMarginBottom 240
 #define kMinStartSeconds 3.0f
+#define kStareRadio 0.7f
+
+@interface ChorusLayer(Private)
+- (void)synicSingersScript;
+- (void)startOtherSingerStarePlayer;
+- (void)synicPlayerScript;
+- (void)synicSoundScript;
+- (void)updateSongTemplate;
+- (void)updatePlayerState:(ccTime)dt;
+@end
+
 
 @implementation ChorusLayer
 @synthesize player, singer0, singer1;
@@ -47,8 +55,10 @@
         
         for (int i=1; i<4; ++i) {
             ChorusSinger *singer = [ChorusSinger spriteWithSpriteFrameName:@"singer0.png"];
-            singer.position = ccp(singer.screenSize.width-(kSingerIntervalWidth+kSingerBoundX)*i, 
-                                  kSingerIntervalHeight*i + kSingerBoundY + kSingerMarginBottom);
+            float singerSpritWidth = [singer boundingBox].size.width;
+            float singerSpritHeight = [singer boundingBox].size.height;
+            singer.position = ccp(singer.screenSize.width - (singerSpritWidth)*i, 
+                                  singerSpritHeight/4*i  + kSingerMarginBottom);
             [self.batchNode addChild:singer];
             if( player == nil)
                 self.player = singer;
@@ -80,14 +90,12 @@
         
         
         //bmfonts
-      
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        float zoom = 0.5f;
-        self.songProgressLabel = [CCLabelBMFont labelWithString:@"0:00.0" fntFile:@"impact64.fnt"];
+        self.songProgressLabel = [CCLabelBMFont labelWithString:@"0:00.0" fntFile:@"v5pixl.fnt"];
         songProgressLabel.anchorPoint = CGPointMake(0, 0.5);
-        songProgressLabel.position = ccp(winSize.width-songProgressLabel.contentSize.width*zoom-5, 20);
+        songProgressLabel.position = ccp(winSize.width-songProgressLabel.contentSize.width - 5, songProgressLabel.contentSize.height/2 + 5);
         [self addChild:songProgressLabel];
-        [songProgressLabel runAction:[CCScaleTo actionWithDuration:0 scale:zoom]];
+
         
         //update
         [self schedule:@selector(updatePlayerState:)];
@@ -118,6 +126,18 @@
 
 }
 
+- (void)startOtherSingerStarePlayer{
+    for (id singer in otherChorusSingers) {
+        if( [singer state] == GameCharacterStateIdle ){
+            [singer changeState:GameCharacterStateSingStare];
+            [singer performSelector:@selector(changeStateByNumber:)
+                         withObject:[NSNumber numberWithInt:GameCharacterStateIdle] 
+                         afterDelay:5.0f];
+        }
+    }
+
+}
+
 - (void)synicPlayerScript{
     AVAudioPlayer *avPlayer = [GameManager sharedGameManager].avPlayer;
     NSDictionary *peekData = [playerScriptQueue peek];
@@ -139,12 +159,17 @@
         } else if( avPlayer.currentTime > startedTime + duration + residual){
             hasTemplateTouch = YES;
             int basePoint = [[peekData objectForKey:@"point"] intValue];
-            int playerGainPoints =  (float)timeGainPoints /(timeGainPoints + timeCutDownPoints) * basePoint;
-            gameHighPoints += basePoint;
+            float percentGain = (float)timeGainPoints /(timeGainPoints + timeCutDownPoints);
+            int playerGainPoints =  percentGain * basePoint;
+            
             playerPoints += playerGainPoints;
             
-            NSLog(@"ChorusLayer -> player's time gain points:%d and time cut down points:%d curent gain points:%d, gameHighPoints:%d, player points:%d",timeGainPoints, timeCutDownPoints, playerGainPoints, gameHighPoints, playerPoints);
-        
+            NSLog(@"ChorusLayer -> player's time gain points:%d and time cut down points:%d right radio :%f curent gain points:%d, gameHighPoints:%d, player points:%d",timeGainPoints, timeCutDownPoints, percentGain, playerGainPoints, gameHighPoints, playerPoints);
+            if( percentGain < kStareRadio ){
+                [self startOtherSingerStarePlayer];
+            }
+            
+            //reset data
             timeGainPoints = 0;
             timeCutDownPoints = 0;
             [playerScriptQueue dequeue];  //remove it
@@ -153,14 +178,7 @@
     if( !hasTemplateTouch && avPlayer.currentTime > kMinStartSeconds){
         if( player.state != GameCharacterStateIdle ){
             playerPoints--;
-            for (id singer in otherChorusSingers) {
-                if( [singer state] == GameCharacterStateIdle ){
-                    [singer changeState:GameCharacterStateSingStare];
-                    [singer performSelector:@selector(changeStateByNumber:)
-                                 withObject:[NSNumber numberWithInt:GameCharacterStateIdle] 
-                                 afterDelay:5.0f];
-                }
-            }
+            [self startOtherSingerStarePlayer];
         }
     }
 }
@@ -231,6 +249,11 @@
     self.singersScrpitQueue =[NSMutableArray arrayWithArray: [dic objectForKey:@"singersScrpitQueue"]];
     self.playerScriptQueue = [NSMutableArray arrayWithArray: [dic objectForKey:@"playerScriptQueue"]];
     self.soundScriptQueue = [NSMutableArray arrayWithArray: [dic objectForKey:@"soundScriptQueue"]];
+    
+    for (id plData in playerScriptQueue) {
+        int basePoint = [[plData objectForKey:@"point"] intValue];
+        gameHighPoints += basePoint;
+    }
     
     [[GameManager sharedGameManager] avPlay:bgMusic ofType:bgMusicType];    
 }

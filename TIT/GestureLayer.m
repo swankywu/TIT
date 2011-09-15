@@ -29,10 +29,11 @@
     self = [super init];
     if( self ) {
         self.isTouchEnabled = YES;
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"common_atlas.plist"];
-        self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"common_atlas.png"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"texture_atlas.plist"];
+        self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture_atlas.png"];
         
-        self.tapTouchItem = [TapTouchItem spriteWithSpriteFrameName:@"touch0.png"];        
+        self.tapTouchItem = [TapTouchItem spriteWithSpriteFrameName:@"touch0.png"]; 
+        [tapTouchItem setPosition:ccp(-[tapTouchItem boundingBox].size.width, -[tapTouchItem boundingBox].size.height)];
         [batchNode addChild:tapTouchItem z:kZTapTouchItemNode];
         
         [self addChild:batchNode];

@@ -37,7 +37,6 @@
     if( self ){
         self.type = GameObjectTypeSinger;
         [self initAnimations];
-        [self setPosition:ccp(-128, -128)];
         [self changeState:GameCharacterStateTapEnd];
     }
     return self;
